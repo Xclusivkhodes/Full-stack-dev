@@ -1,5 +1,5 @@
 body {
-  font-family: poppins;
+  font-family: quicksand;
   margin: 0 10%;
   background-color: #000caf;
   color: white;
@@ -7,8 +7,9 @@ body {
 }
 
 h1 {
-  font-size: 60px;
+  font-size: 80px;
   text-align: center;
+  font-weight: bolder;
 }
 
 li {

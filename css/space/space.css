@@ -1,0 +1,13 @@
+body {
+  background-image: url("images/universe.jpg");
+  background-size: cover;
+  text-align: center;
+  color: white;
+  font-family: orbitron;
+}
+
+.btn {
+  background: white;
+  border: none;
+  padding: 6px 12px;
+}
