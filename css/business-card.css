@@ -14,10 +14,15 @@ body {
   width: 30%;
   margin: 0 auto;
   background: #0061bd;
-  border-bottom: 10px solid#2100a5;
-  border-right: 10px solid#220c7c;
   color: #d8cefe;
   font-family: quicksand, poppins, gagalin;
+}
+
+.card:hover {
+  background: #220c7c;
+  border-bottom: 10px solid #0061bd;
+  transition: 1s ease-out;
+  border-right: 10px solid #004e96;
 }
 
 .text-wrapper {
