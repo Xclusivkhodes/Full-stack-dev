@@ -1,0 +1,17 @@
+.ad {
+  background: #055821;
+  border: 10px solid #73a105;
+  display: block;
+  margin: 0 auto;
+  width: 500px;
+  height: 150px;
+  font-family: Rammetto One, cursive;
+  text-align: center;
+  color: white;
+}
+
+.cta {
+  border: 2px solid #73a105;
+  background-color: #706900;
+  padding: 10px 20px;
+}

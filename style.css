@@ -1,5 +1,10 @@
+@font-face {
+  font-family: poppins;
+  src: url(/font/Poppins-Regular.ttf);
+}
+
 body {
-  font-family: quicksand;
+  font-family: poppins;
   margin: 0 10%;
   background-color: #000caf;
   color: white;
@@ -7,7 +12,7 @@ body {
 }
 
 h1 {
-  font-size: 80px;
+  font-size: 300%;
   text-align: center;
   font-weight: bolder;
 }

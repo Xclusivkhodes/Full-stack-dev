@@ -1,0 +1,10 @@
+h1 {
+  font-size: 200px;
+  text-align: center;
+  color: white;
+}
+
+body {
+  background: #b7111b;
+  text-shadow: 5px -5px 5px black;
+}
