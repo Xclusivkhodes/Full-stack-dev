@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "happy monkey", cursive;
+  text-align: center;
+  background: #a2d2ff;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  text-align: center;
+  width: fit-content;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+  border-radius: 1000%;
+  border: 6px solid #efb0c9;
+}
+
+h1,
+h2,
+h4,
+h3,
+p {
+  text-shadow: 0px 0px 2px black;
+}
+
+h2,
+h4 {
+  background: #efb0c9;
+}

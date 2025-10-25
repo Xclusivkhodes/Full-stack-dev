@@ -1,0 +1,17 @@
+.container {
+  border: 10px solid #023b00;
+  height: 500px;
+  display: flex;
+  justify-content: space-around;
+  align-items: start;
+}
+
+.item {
+  background: linear-gradient(#023b00, #046b00);
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  border: 4px solid black;
+  font-size: 60px;
+  text-align: center;
+}
