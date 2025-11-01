@@ -48,7 +48,8 @@ p {
 }
 
 .gift {
-  width: 400px;
+  width: 90%;
+  max-width: 400px;
   height: 400px;
   border: 6px solid white;
   border-radius: 10px;
@@ -64,6 +65,11 @@ p {
 
 .gift-section {
   margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .hot:hover {
