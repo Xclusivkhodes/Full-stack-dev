@@ -1,0 +1,87 @@
+@font-face {
+  font-family: technology-bold;
+  src: url(/font/Technology.ttf);
+}
+
+@font-face {
+  font-family: technology;
+  src: url(/font/Technology-Bold.ttf);
+}
+
+@font-face {
+  font-family: poppins;
+  src: url(/font/Poppins-ExtraBold.ttf);
+}
+
+body {
+  margin: 0;
+  background: #020079;
+  font-family: poppins;
+  font-size: 25px;
+}
+
+main {
+  display: grid;
+  justify-content: center;
+  text-align: center;
+  color: white;
+
+  grid-template-columns: repeat(auto-fit, 400px);
+  grid-template-rows: repeat(auto-fit, 300px);
+}
+
+.score-section {
+  margin: 0 30px;
+}
+
+.score-cont {
+  background-color: black;
+  width: 200px;
+  height: 160px;
+  margin: 0 20px;
+  display: flex;
+  justify-content: center;
+  border-radius: 20px;
+  justify-self: center;
+}
+
+.score {
+  font-family: technology;
+  font-size: 130px;
+  margin: 0;
+  align-self: center;
+  color: rgb(231, 28, 96);
+}
+
+h1 {
+  margin: 0;
+}
+
+.btn {
+  background: transparent;
+  font-family: technology;
+  border: 2px solid rgba(255, 255, 255, 0.466);
+  height: 45px;
+  width: 45px;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.507);
+  border-radius: 10px;
+  margin: 10px;
+}
+
+#addOns {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.new-btn {
+  justify-self: center;
+  background: transparent;
+  color: white;
+  font-family: technology;
+  border-radius: 20px;
+  font-size: 40px;
+  padding: 10px 40px;
+  border: 4px solid white;
+}

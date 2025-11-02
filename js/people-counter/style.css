@@ -12,11 +12,18 @@ body {
 }
 
 button {
+  width: 200px;
   padding: 20px;
   font-family: poppins;
   font-size: large;
   border-radius: 50px;
   border: none;
+  margin: 10px;
+  color: white;
+}
+
+#save-btn {
+  background: green;
 }
 
 #increment-btn {
