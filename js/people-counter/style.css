@@ -1,0 +1,25 @@
+body {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url("images/people.jpg");
+  background-size: cover;
+  color: white;
+  font-size: 150%;
+  flex-direction: column;
+  font-family: poppins;
+}
+
+button {
+  padding: 20px;
+  font-family: poppins;
+  font-size: large;
+  border-radius: 50px;
+  border: none;
+}
+
+#increment-btn {
+  background: darkred;
+  color: white;
+}

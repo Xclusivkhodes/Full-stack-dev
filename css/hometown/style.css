@@ -1,6 +1,10 @@
+@font-face {
+  font-family: poppins;
+  src: url(/font/Poppins-Regular.ttf);
+}
+
 * {
   font-family: poppins;
-  scroll-behavior: smooth;
 }
 
 body {
