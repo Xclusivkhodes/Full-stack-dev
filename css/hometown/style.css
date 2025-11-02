@@ -3,6 +3,11 @@
   src: url(/font/Poppins-Regular.ttf);
 }
 
+@font-face {
+  font-family: poppinsBold;
+  src: url(/font/Poppins-ExtraBold.ttf);
+}
+
 * {
   font-family: poppins;
 }
@@ -40,6 +45,7 @@ h1 {
   border-radius: 20px;
   padding: 10px;
   transform: rotate(-10deg);
+  font-family: poppinsBold;
 }
 
 .hero::before {
@@ -85,6 +91,7 @@ h2 {
   text-align: center;
   margin: 50px 0;
   font-size: clamp(2px, 7vw, 45px);
+  font-family: poppinsBold;
 }
 
 .card {
@@ -148,4 +155,8 @@ img {
 
 ::-webkit-scrollbar-thumb:hover {
   background-color: #104e8b;
+}
+
+h3 {
+  font-family: poppinsBold;
 }
