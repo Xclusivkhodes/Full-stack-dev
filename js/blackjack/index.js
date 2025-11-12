@@ -42,6 +42,9 @@ function tie() {
   stake = 0;
   stakeText.textContent = Number(stake);
   btn.disabled = false;
+  btn2.style.display = "none";
+  btn3.style.display = "none";
+  btn.style.display = "block";
 }
 
 function lost() {
@@ -54,6 +57,9 @@ function lost() {
   stake = 0;
   stakeText.textContent = Number(stake);
   btn.disabled = false;
+  btn2.style.display = "none";
+  btn3.style.display = "none";
+  btn.style.display = "block";
 }
 
 function won() {
@@ -66,6 +72,9 @@ function won() {
   stake = 0;
   stakeText.textContent = Number(stake);
   btn.disabled = false;
+  btn2.style.display = "none";
+  btn3.style.display = "none";
+  btn.style.display = "block";
 }
 
 function reset() {
@@ -87,6 +96,9 @@ function blackJack() {
   stake = 0;
   stakeText.textContent = Number(stake);
   btn.disabled = false;
+  btn2.style.display = "none";
+  btn3.style.display = "none";
+  btn.style.display = "block";
 }
 
 function span() {
@@ -107,6 +119,9 @@ function newCard() {
   num2Text.textContent = Number(num2);
   sumText.textContent = Number(sum);
   btn.disabled = true;
+  btn2.style.display = "block";
+  btn3.style.display = "block";
+  btn.style.display = "none";
 }
 
 function start() {
@@ -116,8 +131,8 @@ function start() {
   startBtn.style.display = "none";
   resumeBtn.style.display = "none";
   btn.style.display = "block";
-  btn2.style.display = "block";
-  btn3.style.display = "block";
+  btn2.style.display = "none";
+  btn3.style.display = "none";
   if (stake > money) {
     moneyNotEnough.showModal();
     dialText.textContent = "You do not have enough funds to stake this much.";
@@ -272,9 +287,9 @@ function resume() {
   money -= stake;
   startBtn.style.display = "none";
   resumeBtn.style.display = "none";
+  btn2.style.display = "none";
+  btn3.style.display = "none";
   btn.style.display = "block";
-  btn2.style.display = "block";
-  btn3.style.display = "block";
   if (stake > money) {
     moneyNotEnough.showModal();
     dialText.textContent = "You do not have enough funds to stake this much.";
