@@ -26,6 +26,11 @@ let parent = document.getElementById("score-cont");
 let moneyFinish = document.getElementById("money-finish");
 let moneyNotEnough = document.getElementById("money-not-enough");
 let resumeBtn = document.getElementById("resume");
+let userName = document.getElementById("name");
+
+userNameInputed = prompt("What is your name?");
+
+userName.textContent = userNameInputed;
 
 function tie() {
   dialog.showModal();
