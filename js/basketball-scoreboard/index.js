@@ -39,3 +39,5 @@ function reset() {
   scoreGuestText.textContent = 0;
   scoreHomeText.textContent = 0;
 }
+
+console.log(scoreGuestText);

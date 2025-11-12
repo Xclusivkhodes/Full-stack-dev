@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BlackJack</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>BlackJack</h1>
+    <p>You've got Blackjack!</p>
+    <p id="score-cont">
+      Card: <span id="card-num1">0</span> <span id="card-num2">0</span
+      ><br /><span class="m-0" id="addedd"
+        >Added Card: <span id="contern">0</span></span
+      >
+    </p>
+    <p>Sum: <span id="sum">0</span></p>
+    <button id="start" onclick="start()">START GAME</button>
+    <button id="hidden" id="active" onclick="newCard()">NEW CARD</button>
+    <button id="hidden2" id="more" onclick="addMore()">ADD MORE</button>
+    <button id="hidden3" onclick="dealerTurn()">DEALER'S TURN</button>
+    <button id="resume" onclick="resume()">RESUME</button>
+
+    <p>Felix: $<span id="money">0</span></p>
+    <p>Stake: $<span id="stake">0</span></p>
+    <p>Dealer: $<span id="bot-money">0</span></p>
+
+    <p id="dealers-turn"></p>
+    <p id="error"></p>
+    <dialog id="dialog">
+      <p id="dialog-text"></p>
+      <button id="close" onclick="closeDialog()">CLOSE</button>
+    </dialog>
+    <dialog id="money-finish">
+      <p id="dialo-text"></p>
+      <button id="restart" onclick="restart()">RESTART</button>
+    </dialog>
+    <dialog id="money-not-enough">
+      <p id="dial-text"></p>
+      <button id="continue" onclick="contine()">CONTINUE</button>
+    </dialog>
+    <script src="index.js"></script>
+  </body>
+</html>

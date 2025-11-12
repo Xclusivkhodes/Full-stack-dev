@@ -1,0 +1,166 @@
+@font-face {
+  font-family: Laga-Sans-Regular;
+  src: url(/font/Liga\ Sans\ LT\ Std\ Bold.ttf);
+}
+
+@font-face {
+  font-family: Laga-Sans-Bold;
+  src: url(/font/Liga\ Sans\ LT\ Std\ Black.ttf);
+}
+
+body {
+  margin: 0;
+  background: url(images/From\ KlickPin\ CF\ Green\ Wallpaper\ 💚\ for\ Procreate\ Art.jpg);
+  background-size: cover;
+  color: white;
+  display: flex;
+  justify-self: center;
+  flex-direction: column;
+  width: 400px;
+  align-items: center;
+  align-self: center;
+  font-family: Liga-Sans-Regular;
+  justify-self: center;
+  justify-content: center;
+}
+
+@media (max-width: 600px) {
+  body {
+    background-size: auto;
+  }
+}
+
+h1 {
+  font-family: Laga-Sans-Bold;
+  color: #f7de00;
+  font-size: 70px;
+  margin: 10px 0 0 0;
+}
+
+p {
+  font-family: Laga-Sans-Regular;
+  font-size: 30px;
+  margin: 10px 0;
+}
+
+#contern {
+}
+
+.m-0 {
+  margin: 0;
+}
+
+button {
+  background: #c9b502;
+  border: none;
+  color: rgb(2, 105, 2);
+  margin: 10px;
+  height: 40px;
+  width: 250px;
+  border-radius: 3px;
+  font-size: 20px;
+  font-family: Laga-Sans-Bold;
+}
+
+#error {
+  color: red;
+  font-style: italic;
+}
+
+#hidden {
+  display: none;
+}
+
+#hidden2 {
+  display: none;
+}
+
+#hidden3 {
+  display: none;
+}
+
+dialog {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  border: none;
+  border-radius: 10px;
+  padding: 2rem;
+  background-size: 100%;
+  background: transparent;
+  font-family: Laga-Sans-Regular;
+  text-align: center;
+  transition: opacity 0.8s ease-out;
+}
+dialog[open] {
+  animation: text-fade-in 0.8s ease-in forwards;
+}
+
+dialog[open]::backdrop {
+  animation: backdrop-fade-in 0.8s ease-in forwards;
+}
+
+dialog::backdrop {
+  background-color: rgb(0, 0, 0, 0.8);
+}
+
+dialog[closing] {
+  display: block;
+  animation: text-fade-out 1s forwards;
+}
+
+dialog[closing]::backdrop {
+  display: block;
+  animation: backdrop-fade-out 0.8s ease-in forwards;
+}
+
+#resume {
+  display: none;
+}
+
+@keyframes backdrop-fade-in {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+}
+
+@keyframes backdrop-fade-out {
+  0% {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@keyframes text-fade-in {
+  0% {
+    opacity: 0;
+    scale: 0;
+  }
+
+  100% {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+@keyframes text-fade-out {
+  0% {
+    opacity: 1;
+    scale: 1;
+  }
+
+  100% {
+    opacity: 0;
+    scale: 10;
+  }
+}
