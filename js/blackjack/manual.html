@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BlackJack Game Manual</title>
+    <style>
+      @font-face {
+        font-family: Laga-Sans-Regular;
+        src: url(/font/Liga\ Sans\ LT\ Std\ Bold.ttf);
+      }
+
+      @font-face {
+        font-family: Laga-Sans-Bold;
+        src: url(/font/Liga\ Sans\ LT\ Std\ Black.ttf);
+      }
+
+      * {
+        box-sizing: border-box;
+        font-family: Laga-Sans-Regular;
+      }
+
+      body {
+        background: #121212;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem;
+      }
+
+      h1,
+      h2,
+      h3 {
+        color: #ffd700;
+        text-align: center;
+        margin-bottom: 1rem;
+        font-family: Laga-Sans-Bold;
+      }
+
+      h1 {
+        font-size: 3rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        border-bottom: 2px solid #ffd700;
+        display: inline-block;
+        padding-bottom: 0.3rem;
+      }
+
+      h2 {
+        font-size: 2rem;
+        margin-top: 2rem;
+        border-left: 4px solid #ffd700;
+        padding-left: 0.6rem;
+      }
+
+      ul {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      li::before {
+        content: "🎴 ";
+        color: #ffd700;
+      }
+
+      p,
+      li {
+        font-size: 1.3rem;
+        margin-bottom: 0.7rem;
+      }
+
+      .tip {
+        background: rgba(255, 215, 0, 0.1);
+        border-left: 4px solid #ffd700;
+        padding: 1rem;
+        border-radius: 8px;
+        margin: 1rem 0;
+      }
+
+      .faq {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 1rem;
+        border-radius: 8px;
+        margin-top: 2rem;
+      }
+
+      .faq h3 {
+        color: #ffd700;
+        text-align: left;
+        border-bottom: 1px solid #444;
+        padding-bottom: 0.3rem;
+      }
+
+      footer {
+        text-align: center;
+        margin-top: 3rem;
+        color: #aaa;
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 600px) {
+        h1 {
+          font-size: 1.6rem;
+        }
+        h2 {
+          font-size: 1.2rem;
+        }
+        p,
+        li {
+          font-size: 0.95rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>BlackJack Game Manual</h1>
+
+      <h2>Game Overview</h2>
+      <p>
+        Play against the dealer and get as close to 21 as possible without going
+        over. Whoever is closer to 21 wins the round.
+      </p>
+
+      <h2>Getting Started</h2>
+      <ul>
+        <li>Enter your <strong>stake</strong> (bet amount).</li>
+        <li>Click <strong>Start Game</strong> to begin.</li>
+        <li>Your cards and total will appear under <strong>Sum</strong>.</li>
+        <li>The dealer’s cards appear under <strong>Dealer</strong>.</li>
+        <li>
+          Use buttons: <strong>New Card</strong>, <strong>Hit</strong>,
+          <strong>Dealer’s Turn</strong>, <strong>Resume</strong>.
+        </li>
+      </ul>
+
+      <div class="tip">
+        <strong>Tip:</strong> If your total goes over 21, you bust and lose
+        automatically.
+      </div>
+
+      <h2>Interface & Labels</h2>
+      <ul>
+        <li><strong>Card:</strong> Shows your dealt cards.</li>
+        <li><strong>Added Card:</strong> Displays your latest card.</li>
+        <li><strong>Sum:</strong> Your card total.</li>
+        <li><strong>Stake:</strong> Your bet amount.</li>
+        <li>
+          <strong>Dealer:</strong> Dealer’s card total (revealed after their
+          turn).
+        </li>
+        <li>
+          <strong>Buttons:</strong> START GAME, NEW CARD, HIT, DEALER’S TURN,
+          RESUME, CLOSE, RESTART, CONTINUE.
+        </li>
+      </ul>
+
+      <h2>Tips & Strategy</h2>
+      <ul>
+        <li>Track your <strong>Sum</strong> closely — stay under 21!</li>
+        <li>With 17 or higher, it’s often best to stand.</li>
+        <li>Adjust your play based on the dealer’s visible cards.</li>
+        <li>Bet wisely — don’t risk more than you can afford.</li>
+        <li>
+          Use <strong>Resume</strong> or <strong>Restart</strong> to continue or
+          reset.
+        </li>
+      </ul>
+
+      <h2>Rules Summary</h2>
+      <ul>
+        <li>Aces count as 1 or 11 (whichever benefits you).</li>
+        <li>Face cards count as 10.</li>
+        <li>Number cards count as their face value.</li>
+        <li>If your total exceeds 21, you bust.</li>
+        <li>Dealer must play once you stand.</li>
+        <li>You win if your total ≤ 21 and greater than the dealer’s.</li>
+        <li>Tie = Push (stake returned, if enabled).</li>
+      </ul>
+
+      <div class="faq">
+        <h3>FAQ</h3>
+        <p>
+          <strong>Q:</strong> What happens when I hit “New Card”?<br />
+          <strong>A:</strong> It resets or deals a new hand depending on the
+          game state.
+        </p>
+
+        <p>
+          <strong>Q:</strong> Can I change my stake after starting?<br />
+          <strong>A:</strong> No — set it before clicking Start Game.
+        </p>
+
+        <p>
+          <strong>Q:</strong> What does “Resume” do?<br />
+          <strong>A:</strong> It continues the game after a pause or result
+          screen.
+        </p>
+
+        <p>
+          <strong>Q:</strong> What if I press “Dealer’s Turn” too early?<br />
+          <strong>A:</strong> It locks your hand and gives the turn to the
+          dealer.
+        </p>
+      </div>
+
+      <footer>© 2025 Xclusivs — BlackJack Game Manual</footer>
+    </div>
+  </body>
+</html>

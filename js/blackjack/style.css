@@ -37,13 +37,18 @@ h1 {
   margin: 10px 0 0 0;
 }
 
-p {
+p,
+a {
   font-family: Laga-Sans-Regular;
   font-size: 30px;
   margin: 10px 0;
+  color: white;
 }
 
-#contern {
+a {
+  border-top: 2px white solid;
+  border-bottom: 2px white solid;
+  text-decoration: none;
 }
 
 .m-0 {
@@ -163,4 +168,9 @@ dialog[closing]::backdrop {
     opacity: 0;
     scale: 10;
   }
+}
+
+footer {
+  font-family: Laga-Sans-Regular;
+  color: #313131;
 }
