@@ -46,9 +46,11 @@ a {
 }
 
 a {
-  border-top: 2px white solid;
-  border-bottom: 2px white solid;
   text-decoration: none;
+}
+
+a {
+  font-size: 22px;
 }
 
 .m-0 {
@@ -64,6 +66,12 @@ button {
   width: 250px;
   border-radius: 3px;
   font-size: 20px;
+  font-family: Laga-Sans-Bold;
+}
+
+.bg-green {
+  background-color: #62ad00;
+
   font-family: Laga-Sans-Bold;
 }
 
