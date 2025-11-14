@@ -182,14 +182,18 @@ function logic() {
     stake = 0;
     stakeText.textContent = Number(stake);
     btn.disabled = false;
+    reset();
   }
 
   if (sum < dealerSum) {
     lost();
+    reset();
   } else if (sum > dealerSum) {
     won();
+    reset();
   } else if (sum === dealerSum) {
     tie();
+    reset();
   }
 }
 
