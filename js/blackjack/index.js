@@ -1,5 +1,6 @@
 let num1 = 0;
 let num2 = 0;
+let cards = [];
 let sum = 0;
 let money = 0;
 let stake = 0;
@@ -27,6 +28,7 @@ let moneyFinish = document.getElementById("money-finish");
 let moneyNotEnough = document.getElementById("money-not-enough");
 let resumeBtn = document.getElementById("resume");
 let userName = document.getElementById("name");
+let container = document.getElementById("contern");
 
 userNameInputed = prompt("What is your name?");
 
@@ -81,9 +83,11 @@ function reset() {
   sumText.textContent = 0;
   num2Text.textContent = 0;
   num1Text.textContent = 0;
+  container.textContent = 0;
   num1 = 0;
   num2 = 0;
-  num3 = "";
+  num3 = 0;
+  cards = [];
 }
 
 function blackJack() {
@@ -99,16 +103,6 @@ function blackJack() {
   btn2.style.display = "none";
   btn3.style.display = "none";
   btn.style.display = "block";
-}
-
-function span() {
-  container.remove(container);
-  container = document.createElement("span");
-  container.id = "contern";
-  parent.insertBefore(container, num2Text.nextSibling);
-  span = document.createElement("span");
-  span.textContent = Number(num3) + " ";
-  container.appendChild(span);
 }
 
 function newCard() {
@@ -161,21 +155,19 @@ function start() {
 
 function addMore() {
   let num3 = Number(Math.floor(Math.random() * (10 - 2 + 1) + 2));
-  container = document.getElementById("contern");
+
   span = document.createElement("span");
-  span.textContent = " " + Number(num3) + " ";
-  container.appendChild(span);
+  cards.push(num3);
+  container.textContent = cards;
   sum += Number(num3);
   sumText.textContent = Number(sum);
   if (sum === 21) {
     blackJack();
     reset();
-    span();
   }
   if (sum > 21) {
     lost();
     reset();
-    span();
   }
 }
 
