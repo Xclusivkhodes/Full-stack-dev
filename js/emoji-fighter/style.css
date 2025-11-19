@@ -1,0 +1,37 @@
+body {
+  font-family: "Permanent Marker";
+  font-weight: 400;
+  font-style: normal;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.ttl {
+  text-shadow: 2px 4px black;
+  font-weight: bolder;
+  color: orange;
+  font-size: 4rem;
+  transform: rotate(-10deg);
+  line-height: 1;
+}
+
+button {
+  background-color: orange;
+  font-family: "Permanent Marker";
+  outline: 0;
+  border-radius: 10px;
+  font-size: 2rem;
+  padding: 0 20px;
+  color: white;
+  border: none;
+}
+
+div {
+  height: 80px;
+}
+
+#stage {
+  font-size: 2rem;
+}
