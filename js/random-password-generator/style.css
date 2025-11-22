@@ -119,3 +119,22 @@ hr {
 #customize-btn {
   display: none;
 }
+
+@media (max-width: 900px) {
+  .card {
+    width: 55%;
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    width: 60%;
+    font-size: 0.7rem;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+  #customize {
+    display: none;
+  }
+}
