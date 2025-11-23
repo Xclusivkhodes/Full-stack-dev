@@ -1,0 +1,112 @@
+:root {
+  --blue: #2563eb;
+  --blue-light: #3b82f6;
+  --bg-light: #f7f9fc;
+  --bg-dark: #0f172a;
+  --card-light: #ffffff;
+  --card-dark: #1e293b;
+  --text-light: #0f172a;
+  --text-dark: #f1f5f9;
+  --border-light: #f2f3f5;
+  --border-dark: #334155;
+  --bg-light-transparent: #f7f9fc7a;
+  --bg-dark-transparent: #0f172a73;
+  --bg-light-semi-transparent: #f7f9fcc5;
+  --bg-dark-semi-transparent: #ffffffbe;
+  color-scheme: light dark;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: light-dark(var(--bg-light), var(--bg-dark));
+  font-family: poppins;
+  display: grid;
+  height: 100vh;
+  place-items: center;
+  margin: 0;
+}
+
+main {
+  background-color: light-dark(var(--border-light), var(--border-dark));
+  min-height: 70vh;
+  border-radius: 25px;
+  margin: 0 5%;
+  padding-bottom: 2%;
+}
+
+.header {
+  background-color: light-dark(var(--blue-light), var(--blue));
+  width: 100%;
+  padding: 30px;
+  padding-top: 10px;
+  box-sizing: border-box;
+  border-radius: 25px 25px 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.card {
+  justify-self: center;
+  background-color: light-dark(var(--card-light), var(--card-dark));
+  width: 80%;
+  padding: 3px;
+  border-radius: 3px;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.main-ttl {
+  font-size: 1.7rem;
+  color: white;
+}
+
+.header input {
+  width: 100px;
+  height: 50px;
+  margin-bottom: 10px;
+  background-color: transparent;
+  border: 2px solid var(--bg-light-semi-transparent);
+  outline: none;
+  border-radius: 6px;
+  font-size: 70px;
+  padding: 10px;
+  font-family: poppins;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+}
+
+.header button {
+  width: 125px;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  background-color: var(--bg-light);
+  color: black;
+  font-family: poppins;
+  font-size: 1rem;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.ttl {
+  margin: 0.5em 0;
+  font-size: 1rem;
+}
+
+.data {
+  font-size: 0.8rem;
+  margin-top: 3px;
+}
