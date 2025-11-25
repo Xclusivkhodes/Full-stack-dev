@@ -1,5 +1,5 @@
 const generateBtn = document.getElementById("generate");
-const customizeBtn = document.getElementById("customize");
+const customizeBtn = document.getElementById("customize-btn");
 const passwordOutput1 = document.getElementById("pass1");
 const passwordOutput2 = document.getElementById("pass2");
 const slider = document.getElementById("myRange");
@@ -9,6 +9,7 @@ const symbol = document.getElementById("symbol");
 const number = document.getElementById("number");
 const tooltip = document.getElementById("tooltip");
 const passLen = document.getElementById("pass-length");
+const customizeSection = document.getElementById("customize-group");
 let val = slider.value;
 
 passLen.textContent = slider.value;
@@ -134,5 +135,13 @@ number.addEventListener("click", function () {
     password.numbers = false;
   } else {
     password.numbers = true;
+  }
+});
+
+customizeBtn.addEventListener("click", function () {
+  if (customizeSection.style.display === "none") {
+    customizeSection.style.display = "block";
+  } else {
+    customizeSection.style.display = "none";
   }
 });
