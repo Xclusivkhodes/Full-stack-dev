@@ -53,6 +53,7 @@ body {
   margin-right: 3px;
   font-size: 0.9rem;
   color: white;
+  width: 200px;
 }
 
 h1 {
@@ -126,7 +127,7 @@ hr {
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   .card {
     width: 60%;
     font-size: 0.7rem;
@@ -134,7 +135,15 @@ hr {
   h1 {
     font-size: 1.5rem;
   }
-  #customize {
+  #customize-group {
     display: none;
+  }
+  #customize-btn {
+    display: block;
+    margin-top: 10px;
+  }
+  .card {
+    box-shadow: 0px 1px 50px light-dark(var(--bg-dark), var(--bg-light));
+    transition: 2s ease-out;
   }
 }
