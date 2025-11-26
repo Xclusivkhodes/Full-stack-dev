@@ -65,7 +65,8 @@ main {
 }
 
 .header input {
-  width: 100px;
+  min-width: 100px;
+  field-sizing: content;
   height: 50px;
   margin-bottom: 10px;
   background-color: transparent;
