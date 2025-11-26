@@ -32,7 +32,6 @@
 const playerGuess = 8;
 const correctAnswer = 6;
 
-const message = playerGuess === correctAnswer ? "Correct" : "Wrong";
-playerGuess < correctAnswer ? "Too Low" : "Too high";
+const message = playerGuess === correctAnswer ? "Correct" : playerGuess < correctAnswer ? "Too Low" : playerGuess > correctAnswer ? "Too High";
 
 console.log(message);

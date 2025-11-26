@@ -80,7 +80,6 @@ hr {
 }
 
 .inputs {
-  margin-top: 0px;
   padding: 10px 15px;
   color: light-dark(var(--blue), var(--blue-light));
   border: none;
@@ -161,5 +160,8 @@ div {
   .card {
     box-shadow: 0px 1px 50px light-dark(var(--bg-dark), var(--bg-light));
     transition: 2s ease-out;
+  }
+  .inputs {
+    margin-top: 10px;
   }
 }
