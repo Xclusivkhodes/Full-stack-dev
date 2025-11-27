@@ -1,0 +1,25 @@
+body {
+  background-color: rgb(59, 55, 55);
+  margin: 0;
+  padding: 00;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+main {
+  background-color: aliceblue;
+  width: 500px;
+  height: 250px;
+  border-radius: 15px;
+  padding: 30px;
+}
+
+img {
+  width: 20px;
+}
+
+p,
+span {
+  font-size: 25px;
+}
