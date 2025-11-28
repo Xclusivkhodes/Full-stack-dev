@@ -1,0 +1,23 @@
+body {
+  display: grid;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+}
+
+.label {
+  color: white;
+  background-color: blue;
+  border-radius: 15px;
+  padding: 40px;
+  margin: 10px;
+}
+
+p {
+  font-size: 30px;
+  font-family: Helvetica, Arial, sans-serif;
+}

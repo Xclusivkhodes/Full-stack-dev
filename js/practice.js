@@ -103,6 +103,33 @@
 
 // setTimeout(logAnswer, 3000, "Lima", 10);
 
-const dateSnapShot = new Date();
+// const dateSnapShot = new Date();
 
-console.log(dateSnapShot.getFullYear().toString());
+// console.log(dateSnapShot.getFullYear().toString());
+
+//Arrow Function
+
+// const getSpendAlert = (amount) => `Warning! You have spent $${amount}`;
+
+// console.log(getSpendAlert(150));
+
+// const speedWarning = (speed, speedLimit) => {
+//   if (speed > speedLimit) {
+//     return `You are going ${speed}mph whish is faster than ${speedLimit}mph and which is too fast`;
+//   }
+// };
+
+// console.log(speedWarning(500, 100));
+
+// let arr = [3, 6, 9, 12, 15];
+
+// let mapArr = arr.map((array) => (array * 1.9).toFixed(2));
+
+// console.log(mapArr);
+
+const giveAdminAccess = (permisionLevel, ...names) => {
+  names.forEach((name) =>
+    console.log(`${name} has been given ${permisionLevel} level access`)
+  );
+};
+giveAdminAccess("admin", "Felix", "Paulina", "Nina", "Grandvillia");
