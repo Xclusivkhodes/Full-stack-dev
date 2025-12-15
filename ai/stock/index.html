@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stock Reporter</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main id="main">
+      <div class="cont">
+        <h1>Dodgy Stock Predictions</h1>
+
+        <div id="load-el">
+          <p id="err">
+            Add up to 3 stock tickers below to get a super accurate stock
+            predictions report ⬇
+          </p>
+          <div class="hors">
+            <input
+              type="text"
+              name="ticker"
+              id="ticker-el"
+              placeholder="MSFT"
+            />
+            <button type="button" id="ticker-btn"></button>
+          </div>
+          <p id="ticker-lst">Your ticks will appear here...</p>
+          <button id="generate-el" disabled>GENERATE REPORT</button>
+        </div>
+      </div>
+
+      <footer>
+        <em id="em-el">Always correct 15% of the time 😇 </em>
+        <p>&copy; This is not financial advice</p>
+      </footer>
+    </main>
+    <script src="index.js"></script>
+  </body>
+</html>

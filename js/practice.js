@@ -127,9 +127,17 @@
 
 // console.log(mapArr);
 
-const giveAdminAccess = (permisionLevel, ...names) => {
-  names.forEach((name) =>
-    console.log(`${name} has been given ${permisionLevel} level access`)
-  );
-};
-giveAdminAccess("admin", "Felix", "Paulina", "Nina", "Grandvillia");
+// const giveAdminAccess = (permisionLevel, ...names) => {
+//   names.forEach((name) =>
+//     console.log(`${name} has been given ${permisionLevel} level access`)
+//   );
+// };
+// giveAdminAccess("admin", "Felix", "Paulina", "Nina", "Grandvillia");
+
+let price = [3, 7, 8, 9];
+
+const sum = (acc, cur) => acc + cur;
+
+let total = price.reduce(sum, 0);
+
+console.log(total);

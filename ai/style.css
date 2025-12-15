@@ -1,0 +1,38 @@
+@font-face {
+  font-family: poppins;
+  src: url(/font/Poppins-Regular.ttf);
+}
+
+body {
+  font-family: poppins;
+  margin: 0 10%;
+  background-color: #000caf;
+  color: white;
+  font-size: 20px;
+}
+
+h1 {
+  font-size: 300%;
+  text-align: center;
+  margin-top: 0;
+}
+
+li {
+  list-style: none;
+  margin-bottom: 10px;
+}
+
+a {
+  color: aliceblue;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.back {
+  margin-top: 5%;
+  margin-bottom: 0;
+}

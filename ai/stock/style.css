@@ -1,0 +1,361 @@
+/*
+ * ----------------------------------------
+ * 1. Base Setup and Color Variables
+ * ----------------------------------------
+ */
+:root {
+  /* ⬇️ THIS IS THE MISSING MAGIC LINE ⬇️ */
+  color-scheme: light dark;
+
+  /* Blue Hues */
+  --primary-color: 210 100% 55%;
+  --primary-hover: 210 100% 45%;
+  --primary-darker: 210 100% 30%;
+
+  /* Light/Dark Mode Colors */
+  --text-color: light-dark(hsl(0, 0%, 15%), hsl(0, 0%, 95%));
+  --background-color: light-dark(hsl(210, 30%, 98%), hsl(210, 20%, 8%));
+  --card-background: light-dark(hsl(0, 0%, 100%), hsl(210, 20%, 12%));
+  --border-color: light-dark(hsl(210, 20%, 85%), hsl(210, 10%, 25%));
+}
+
+/* ----------------------------------------
+ * 2. General Body and Layout
+ * ----------------------------------------
+ */
+body {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* ----------------------------------------
+ * 3. Main Container (The Card)
+ * ----------------------------------------
+ */
+main {
+  /* Layout & Size */
+  width: 90%;
+  max-width: 400px;
+  padding: 30px;
+  text-align: center;
+
+  /* --- 👇 MODIFICATION STARTS HERE 👇 --- */
+  /* Replaced old grid with flex column for better flow and bottom-aligned footer */
+  display: flex;
+  flex-direction: column; /* Ensures the content is spaced out nicely */
+  align-items: center; /* Centers content horizontally within the card */
+  /* --- 👆 MODIFICATION ENDS HERE 👆 --- */
+
+  margin: 2%;
+
+  /* Colors & Borders */
+  background-color: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+
+  /* SHADOW & ANIMATION SETUP */
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.1); /* Initial subtle shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s; /* Smooth animation */
+}
+
+#load-el {
+  margin: 10% 0 5% 0;
+}
+
+/* THE GLOW UP EFFECT */
+main:hover {
+  transform: translateY(-5px) scale(1.01); /* Lifts the card up slightly */
+
+  /* Creates a vibrant blue glow around the card */
+  box-shadow: 0 15px 30px -5px hsla(var(--primary-color), 0.3);
+
+  /* Highlights the border in blue */
+  border-color: hsl(var(--primary-color));
+}
+
+/* ----------------------------------------
+ * 4. Typography
+ * ----------------------------------------
+ */
+h1 {
+  font-size: 2em;
+  color: hsl(var(--text-color));
+  margin-bottom: 5px;
+  margin-top: 0;
+}
+
+p {
+  line-height: 1.5;
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+footer > em,
+footer > p:last-child {
+  font-size: 0.9em;
+  color: light-dark(hsl(0, 0%, 50%), hsl(0, 0%, 65%));
+}
+
+/* ----------------------------------------
+ * 5. Input and Button Group
+ * ----------------------------------------
+ */
+.hors {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+#ticker-el {
+  flex-grow: 1; /* Allows input to shrink/grow responsively */
+  padding: 10px 15px;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1em;
+  background-color: var(--card-background);
+  color: var(--text-color);
+}
+
+#ticker-el:focus {
+  outline: none;
+  border-color: hsl(var(--primary-color));
+}
+
+#ticker-btn {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0; /* Prevents button from being squashed on tiny screens */
+  background-color: hsl(var(--primary-color));
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.5em;
+  display: flex; /* Centers the plus sign perfectly */
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.2s;
+}
+
+button:disabled {
+  cursor: not-allowed; /* Shows the "prohibited" circle icon */
+  opacity: 0.5; /* Fades it out */
+  filter: grayscale(100%); /* Turns the blue to grey automatically */
+  pointer-events: none; /* Disables clicking and hover animations */
+}
+
+#ticker-btn::after {
+  content: "+";
+  font-weight: bold;
+}
+
+#ticker-btn:hover {
+  background-color: hsl(var(--primary-hover));
+}
+
+/* ----------------------------------------
+ * 6. Generate Report Button
+ * ----------------------------------------
+ */
+#generate-el {
+  width: 100%;
+  padding: 15px 20px;
+  margin-top: 10px;
+  background-color: hsl(var(--primary-color));
+  color: white;
+  font-size: 1.1em;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px -2px hsla(var(--primary-color), 0.5);
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+#generate-el:hover {
+  background-color: hsl(var(--primary-hover));
+}
+
+#generate-el:active {
+  transform: translateY(1px);
+}
+
+/* Placeholder box */
+#ticker-lst {
+  min-height: 24px;
+  border: 1px dashed var(--border-color);
+  padding: 10px;
+  border-radius: 6px;
+  font-style: italic;
+  color: light-dark(hsl(0, 0%, 50%), hsl(0, 0%, 55%));
+}
+
+/* ----------------------------------------
+ * 7. Mobile Polish (Media Query)
+ * ----------------------------------------
+ */
+@media (max-width: 480px) {
+  main {
+    padding: 20px; /* Reduce padding to save space */
+    width: 85%; /* Slightly narrower on very small screens */
+  }
+
+  h1 {
+    font-size: 1.6em; /* Smaller title */
+  }
+
+  #generate-el {
+    font-size: 1em; /* Smaller button text */
+    padding: 12px;
+  }
+}
+
+/* ... (Sections 1 through 7 remain the same) ... */
+
+/* ----------------------------------------
+ * 8. Animated Loading State Styling (Revised)
+ * ----------------------------------------
+ */
+
+/* The main container for the injected loading content */
+#loading-animation-container {
+  /* Ensures the loading content fills the space of the main card */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  /* --- 👇 MODIFICATION STARTS HERE 👇 --- */
+  flex-grow: 1; /* This makes the container take up all available vertical space in the 'main' flex container. */
+  justify-content: center; /* Centers the loading content (message/bars) vertically within the available space. */
+  /* --- 👆 MODIFICATION ENDS HERE 👆 --- */
+
+  text-align: center;
+  padding: 0;
+}
+
+/* Header Text Replacement */
+.loading-header {
+  width: 100%; /* Take full width of container */
+}
+
+.loading-message {
+  color: hsl(var(--primary-darker));
+  font-size: 1.5em;
+  margin-top: 50px; /* Push the message down */
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+/* --------------------
+ * A. The Pulsing Bars (Main animation)
+ * -------------------- */
+.bar-container {
+  display: flex;
+  flex-direction: column;
+  width: 80%; /* Wider bars look better in the card */
+  max-width: 300px;
+}
+
+.loading-bar {
+  height: 10px;
+  background-color: hsl(var(--primary-color));
+  border-radius: 5px;
+  opacity: 0.8;
+  margin-bottom: 15px; /* Increased spacing */
+  animation: pulse 1.5s infinite ease-in-out;
+  transform-origin: center; /* Ensures smooth scaling from the center */
+}
+
+/* Adjust lengths and add animation delay for a staggered effect */
+.loading-bar.bar-1 {
+  width: 90%;
+  align-self: flex-start;
+  animation-delay: 0s;
+}
+.loading-bar.bar-2 {
+  width: 70%;
+  align-self: center;
+  animation-delay: 0.2s;
+}
+.loading-bar.bar-3 {
+  width: 85%;
+  align-self: flex-end;
+  animation-delay: 0.4s;
+}
+
+/* Simplified Pulse Keyframes (Kept this, as requested for an animated state) */
+@keyframes pulse {
+  0% {
+    transform: scaleX(0.95);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scaleX(1.05);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scaleX(0.95);
+    opacity: 0.6;
+  }
+}
+
+/* ----------------------------------------
+ * 9. Report Output Box (REVISED)
+ * ----------------------------------------
+ */
+#report-output {
+  /* Layout and Sizing */
+  width: 80%;
+  padding: 18px; /* Slightly more padding for better spacing */
+  margin-top: 15px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-self: center;
+  /* Scrolling Behavior */
+  max-height: 45vh;
+  overflow-y: auto;
+
+  /* --- 👇 Key Styling Change 👇 --- */
+  /* Use the Card's background color or the Input field's background color 
+     for a clean, consistent look. Using 'transparent' or '--card-background' is cleanest. */
+  background-color: var(--card-background);
+
+  /* Use the subtle border color, but make it slightly softer */
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+
+  /* Typography */
+  text-align: left;
+  font-size: 0.95em;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+/* Style the text inside the report box */
+.report-text {
+  margin: 0;
+  padding: 0;
+  color: var(--text-color); /* Ensures text color remains readable */
+}
+
+/* Optional: Make the scrollbar look better (Webkit only: Chrome/Safari/New Edge) */
+#report-output::-webkit-scrollbar {
+  width: 8px;
+}
+
+#report-output::-webkit-scrollbar-thumb {
+  background-color: hsl(var(--primary-hover), 0.5); /* Semi-transparent blue */
+  border-radius: 4px;
+}
+
+#report-output::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(var(--primary-hover));
+}
