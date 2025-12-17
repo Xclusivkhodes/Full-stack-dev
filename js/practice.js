@@ -140,4 +140,4 @@ const sum = (acc, cur) => acc + cur;
 
 let total = price.reduce(sum, 0);
 
-console.log(total);
+console.log(totalss);
