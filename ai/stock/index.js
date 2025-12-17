@@ -9,7 +9,7 @@ const mainEl = document.getElementById("main");
 const emEl = document.getElementById("em-el");
 const orrEm = emEl.textContent;
 const orrText = errEl.textContent;
-const errText = (message, color) => {
+const errText = (message, color = "red") => {
   errEl.textContent = message;
   errEl.style.color = color;
   tickerEl.value = "";
@@ -49,13 +49,12 @@ tickerBtn.addEventListener("click", () => {
   const newTicker = tickerEl.value.toUpperCase().trim();
 
   if (ticksArr.length === 3) {
-    errText("You can only add 3 stock tickers", "red");
+    errText("You can only add 3 stock tickers");
     return;
   }
 
   if (newTicker === "") {
-    errText("You need to input a stock ticker", "red");
-    errEl.style.color = "red";
+    errText("You need to input a stock ticker");
     return;
   }
 
