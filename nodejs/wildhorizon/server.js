@@ -16,12 +16,7 @@ const server = http.createServer(async (req, res) => {
   const queryObj = Object.fromEntries(urlObj.searchParams);
 
   if (urlObj.pathname === "/api" && req.method === "GET") {
-    let filteredDestinations = destinations;
-
-    console.log(queryObj);
-    if (queryObj) {
-      filteredDestinations = filterByQueryParams(destinations, queryObj);
-    }
+    let filteredDestinations = filterByQueryParams(destinations, queryObj);
     JSONData(res, 200, filteredDestinations);
   } else if (req.url.startsWith("/api/continent") && req.method === "GET") {
     const contenent = req.url.split("/").pop();

@@ -19,7 +19,7 @@ export const filter = (res, data, place, t, err) => {
 
 export const filterByQueryParams = (data, queryObj) => {
   const { country, continent, is_open_to_public } = queryObj;
-  const isOpen = is_open_to_public === "true";
+
   if (country) {
     data = data.filter(
       (obj) =>
@@ -29,11 +29,14 @@ export const filterByQueryParams = (data, queryObj) => {
   if (continent) {
     data = data.filter(
       (obj) =>
-        obj.continent.toLowerCase ===
+        obj.continent.toLowerCase() ===
         decodeURIComponent(continent).toLowerCase()
     );
   }
   if (is_open_to_public) {
-    data = data.filter((obj) => obj.is_open_to_public === isOpen);
+    data = data.filter(
+      (obj) => obj.is_open_to_public === JSON.parse(is_open_to_public)
+    );
   }
+  return data;
 };
