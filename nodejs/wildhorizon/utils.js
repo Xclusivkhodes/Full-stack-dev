@@ -35,7 +35,8 @@ export const filterByQueryParams = (data, queryObj) => {
   }
   if (is_open_to_public) {
     data = data.filter(
-      (obj) => obj.is_open_to_public === JSON.parse(is_open_to_public)
+      (obj) =>
+        obj.is_open_to_public === JSON.parse(is_open_to_public.toLowerCase())
     );
   }
   return data;
