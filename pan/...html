@@ -1,0 +1,92 @@
+<script>
+  UST_CT = [];
+  UST = {
+    s: Date.now(),
+    addTag: function (tag) {
+      UST_CT.push(tag);
+    },
+  };
+  UST.addEvent = UST.addTag;
+  (function () {
+    var ust_s = document.createElement("STYLE");
+    ust_s.id = "ust_body_style";
+    ust_s.appendChild(document.createTextNode("body {opacity: 0}"));
+    document.head.appendChild(ust_s);
+  })();
+  setTimeout(function () {
+    var el = document.getElementById("ust_body_style");
+    el && el.remove();
+  }, 800);
+</script>
+<script
+  src="https://avs.nexmatics.africa/server/ab/panafricanaisummit.com.ab.js?v=6.4.0"
+  defer
+></script>
+<script
+  src="https://avs.nexmatics.africa/server/ust-rr.min.js?v=6.4.0"
+  async
+></script>
+
+<!-- Marquee -->
+
+<div class="top-marquee-wrapper">
+  <div class="marquee-content">
+    <div class="marquee-text">
+      Pan African AI Summit Returns To Accra: 22–23 September 2026 | Building On
+      The Inaugural Summit. Shaping Africa's AI Legacy Together
+      &nbsp;&nbsp;&nbsp; Pan African AI Summit Returns To Accra: 22–23 September
+      2026 | Building On The Inaugural Summit. Shaping Africa's AI Legacy
+      Together
+    </div>
+    <div class="marquee-text">
+      Pan African AI Summit Returns To Accra: 22–23 September 2026 | Building On
+      The Inaugural Summit. Shaping Africa's AI Legacy Together
+      &nbsp;&nbsp;&nbsp; Pan African AI Summit Returns To Accra: 22–23 September
+      2026 | Building On The Inaugural Summit. Shaping Africa's AI Legacy
+      Together
+    </div>
+  </div>
+</div>
+
+<!-- JS Logics for Youtube Video -->
+<script>
+  // JS Logics for Youtube Video
+  document.addEventListener("DOMContentLoaded", function () {
+    const playBtn = document.querySelector(".cs_player_btn");
+    const modal = document.querySelector(".cs_video_popup");
+    const iframe = modal ? modal.querySelector("iframe") : null;
+    const overlay = document.querySelector(".cs_video_popup_overlay");
+    const closeBtn = document.querySelector(".cs_video_popup_close");
+
+    if (playBtn && iframe) {
+      let originalSrc = "";
+
+      playBtn.addEventListener("click", function () {
+        // Give the theme a moment to inject the real YouTube URL
+        setTimeout(() => {
+          // If the real URL not stored yet, grab it now
+          if (!originalSrc || originalSrc === "about:blank") {
+            originalSrc = iframe.src;
+          }
+
+          // Only proceed if a valid YouTube URL
+          if (originalSrc && originalSrc !== "about:blank") {
+            const separator = originalSrc.includes("?") ? "&" : "?";
+            // Apply autoplay=1 and rel=0 (limited suggestions), end screen suggestions disabled(1)
+            iframe.src = originalSrc + separator + "autoplay=1&rel=0";
+          }
+        }, 200); // 200ms delay ensures the real content is ready
+      });
+
+      // Stops the video audio immediately when the modal is closed
+      const handleClose = () => {
+        if (originalSrc && originalSrc !== "about:blank") {
+          iframe.src = originalSrc;
+        }
+      };
+
+      if (closeBtn) closeBtn.addEventListener("click", handleClose);
+      if (overlay) overlay.addEventListener("click", handleClose);
+    }
+  });
+</script>

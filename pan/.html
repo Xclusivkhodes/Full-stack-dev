@@ -1,0 +1,272 @@
+<script>
+  UST_CT = [];
+  UST = {
+    s: Date.now(),
+    addTag: function (tag) {
+      UST_CT.push(tag);
+    },
+  };
+  UST.addEvent = UST.addTag;
+  (function () {
+    var ust_s = document.createElement("STYLE");
+    ust_s.id = "ust_body_style";
+    ust_s.appendChild(document.createTextNode("body {opacity: 0}"));
+    document.head.appendChild(ust_s);
+  })();
+  setTimeout(function () {
+    var el = document.getElementById("ust_body_style");
+    el && el.remove();
+  }, 800);
+</script>
+<script
+  src="https://avs.nexmatics.africa/server/ab/panafricanaisummit.com.ab.js?v=6.4.0"
+  defer
+></script>
+<script
+  src="https://avs.nexmatics.africa/server/ust-rr.min.js?v=6.4.0"
+  async
+></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const marquee = document.getElementById("marquee-1745156154491");
+    if (!marquee) return;
+
+    const STORAGE_KEY = "marquee_banner_closed";
+    const BANNER_ID = "1745156154491";
+
+    // 1. Check if user previously closed the banner
+    function isBannerClosed() {
+      const closedState = localStorage.getItem(STORAGE_KEY);
+      if (!closedState) return false;
+
+      try {
+        const closedItems = JSON.parse(closedState);
+        return closedItems.includes(BANNER_ID);
+      } catch (e) {
+        return false;
+      }
+    }
+
+    // 2. Create and add close button
+    function addCloseButton() {
+      // Check if close button already exists
+      if (marquee.querySelector(".marquee-close-btn")) return;
+
+      const closeBtn = document.createElement("button");
+      closeBtn.className = "marquee-close-btn";
+      closeBtn.innerHTML = "&times;";
+      closeBtn.setAttribute("aria-label", "Close banner");
+      closeBtn.style.cssText = `
+                position: absolute !important;
+                right: 10px !important;
+                top: 50% !important;
+                transform: translateY(-50%) !important;
+                background: rgba(0, 0, 0, 0.1) !important;
+                color: #000 !important;
+                border: none !important;
+                width: 24px !important;
+                height: 24px !important;
+                border-radius: 50% !important;
+                font-size: 20px !important;
+                line-height: 1 !important;
+                cursor: pointer !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                z-index: 10001 !important;
+                transition: all 0.2s ease !important;
+            `;
+
+      // Hover effects
+      closeBtn.addEventListener("mouseenter", function () {
+        this.style.background = "rgba(0, 0, 0, 0.2) !important";
+        this.style.transform = "translateY(-50%) scale(1.1) !important";
+      });
+
+      closeBtn.addEventListener("mouseleave", function () {
+        this.style.background = "rgba(0, 0, 0, 0.1) !important";
+        this.style.transform = "translateY(-50%) scale(1) !important";
+      });
+
+      // Close functionality
+      closeBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        closeBanner(true); // true = user clicked
+      });
+
+      marquee.appendChild(closeBtn);
+    }
+
+    // 3. Function to close the banner (completely remove it)
+    function closeBanner(userInitiated = false) {
+      // Save closed state if user clicked
+      if (userInitiated) {
+        const closedState = localStorage.getItem(STORAGE_KEY);
+        let closedItems = [];
+
+        if (closedState) {
+          try {
+            closedItems = JSON.parse(closedState);
+          } catch (e) {
+            closedItems = [];
+          }
+        }
+
+        if (!closedItems.includes(BANNER_ID)) {
+          closedItems.push(BANNER_ID);
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(closedItems));
+        }
+      }
+
+      // Store the original height for animation
+      const originalHeight = marquee.offsetHeight;
+
+      // Add transition for smooth animation
+      marquee.style.transition = "all 0.3s ease, opacity 0.3s ease";
+      marquee.style.overflow = "hidden";
+
+      // Animate out
+      marquee.style.height = originalHeight + "px"; // Set explicit height
+      marquee.style.opacity = "1";
+
+      // Force reflow
+      void marquee.offsetWidth;
+
+      // Start animation
+      marquee.style.height = "0";
+      marquee.style.opacity = "0";
+      marquee.style.padding = "0";
+      marquee.style.margin = "0";
+
+      // Wait for animation to complete, then remove from DOM
+      setTimeout(function () {
+        // 1. Remove the marquee from DOM
+        if (marquee.parentNode) {
+          marquee.parentNode.removeChild(marquee);
+        }
+
+        // 2. Remove body padding-top
+        document.body.style.paddingTop = "0";
+
+        // 3. Update any sticky headers
+        updateHeaderAfterBannerRemoval();
+
+        // 4. Dispatch event for other scripts to know
+        window.dispatchEvent(
+          new CustomEvent("marquee-closed", {
+            detail: { bannerId: BANNER_ID },
+          })
+        );
+
+        console.log("Banner completely removed from DOM");
+      }, 300); // Match CSS transition time
+    }
+
+    // 4. Update headers after banner removal
+    function updateHeaderAfterBannerRemoval() {
+      // Remove body padding
+      document.body.style.paddingTop = "0";
+
+      // Update normal header (remove any margin-top)
+      const normalHeader = document.querySelector(
+        ".cs_site_header.cs_style_1.cs_color_1.cs_sticky_header:not(.cs_sticky_active)"
+      );
+      if (normalHeader) {
+        normalHeader.style.marginTop = "0";
+      }
+
+      // Update sticky header (move to top: 0)
+      const stickyHeader = document.querySelector(
+        ".cs_site_header.cs_style_1.cs_color_1.cs_sticky_header.cs_sticky_active"
+      );
+      if (stickyHeader) {
+        stickyHeader.style.top = "0";
+      }
+
+      // Also check for style_2
+      const stickyHeader2 = document.querySelector(
+        ".cs_site_header.cs_style_2.cs_color_1.cs_sticky_header.cs_sticky_active"
+      );
+      if (stickyHeader2) {
+        stickyHeader2.style.top = "0";
+      }
+    }
+
+    // 5. Initialize banner
+    function initBanner() {
+      if (isBannerClosed()) {
+        // Banner was previously closed - COMPLETELY REMOVE IT
+        if (marquee.parentNode) {
+          marquee.parentNode.removeChild(marquee);
+        }
+        document.body.style.paddingTop = "0";
+        updateHeaderAfterBannerRemoval();
+        console.log("Banner removed (previously closed)");
+      } else {
+        // Banner should be visible
+        addCloseButton();
+
+        // Ensure body has correct padding
+        const bannerHeight = marquee.offsetHeight;
+        document.body.style.paddingTop = bannerHeight + "px";
+
+        console.log("Banner initialized - visible, height:", bannerHeight);
+      }
+    }
+
+    // 6. Add keyboard accessibility
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && document.body.contains(marquee)) {
+        closeBanner(true);
+      }
+    });
+
+    // 7. Handle window resize
+    function handleResize() {
+      if (!document.body.contains(marquee)) return;
+
+      const isMobile = window.innerWidth <= 768;
+      const closeBtn = marquee.querySelector(".marquee-close-btn");
+
+      if (closeBtn) {
+        if (isMobile) {
+          closeBtn.style.right = "5px";
+          closeBtn.style.width = "20px";
+          closeBtn.style.height = "20px";
+          closeBtn.style.fontSize = "16px";
+        } else {
+          closeBtn.style.right = "10px";
+          closeBtn.style.width = "24px";
+          closeBtn.style.height = "24px";
+          closeBtn.style.fontSize = "20px";
+        }
+      }
+
+      // Update body padding if banner is visible
+      if (marquee.style.display !== "none") {
+        const bannerHeight = marquee.offsetHeight;
+        document.body.style.paddingTop = bannerHeight + "px";
+      }
+    }
+
+    // 8. Initialize
+    initBanner();
+    window.addEventListener("resize", handleResize);
+
+    // 9. Debug helper (optional - remove in production)
+    console.log("Marquee controller loaded. Banner exists:", !!marquee);
+  });
+
+  // Optional: Admin function to reset banner (for testing)
+  function resetMarqueeBanner() {
+    localStorage.removeItem("marquee_banner_closed");
+    location.reload();
+  }
+
+  // Make reset function available globally for testing
+  window.resetMarqueeBanner = resetMarqueeBanner;
+</script>

@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Keynote Speakers Carousel</title>
+    <!-- Use a modern, readable font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+    * {
+      box-sizing: border-box; /* Critical for responsive layouts */
+      font-family: var(--primary-font);
+    }
+
+    body {
+      margin: 0;
+    }
+
+    section {
+      /* Placeholder background image for visual appeal */
+      background-image: url(https://panafricanaisummit.com/storage/media/K15mVxpYFwj0aLM8WCpZBUUmeuf4PfXpvi2ED0vh.png);
+      background-size: cover;
+      background-attachment: fixed;
+      background-color: #f3f4f6;
+      margin: 0;
+    }
+    .keynote-carousel-section {
+      padding: 10px 0px;
+      text-align: center;
+    }
+
+    .carousel-title {
+      font-size: 4rem;
+      color: var(--primary);
+      font-weight: 800;
+      margin-bottom: 5px;
+    }
+
+    .carousel-subtitle {
+      font-size: 1.7rem;
+      color: var(--secondary);
+      margin-bottom: 40px;
+    }
+
+    .carousel-wrapper {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      /* Add fading effect at the sides */
+      mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 10%,
+        black 90%,
+        transparent
+      );
+      padding: 20px 0;
+    }
+
+    .carousel-track {
+      display: flex;
+      /* Adjusted animation time for smoother scroll over more items */
+      animation: scrollInfinite 100s linear infinite;
+      padding: 0 10px;
+    }
+
+    .carousel-item {
+      margin: 0 10px;
+      min-width: 300px;
+      max-width: 300px;
+      min-height: 500px; /* Set a consistent height */
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+
+    .carousel-item:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .carousel-item img {
+      width: 100%;
+      height: 70%; /* Image takes up 70% of the card height */
+      max-height: 336px;
+      object-fit: cover;
+      border-radius: 14px;
+      margin-bottom: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    .carousel-item:hover img {
+      transform: scale(1.03);
+    }
+
+    .carousel-item h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      height: auto; /* Allow text to wrap naturally */
+      text-align: center;
+      margin: 0 0 5px 0;
+    }
+
+    .carousel-item p {
+      font-size: 1rem;
+      color: #555;
+      text-align: center;
+      margin-bottom: 10px; /* Space above the button */
+      height: auto; /* Allow text to wrap naturally */
+      padding: 0 10px;
+    }
+
+    .carousel-item p b {
+      color: var(--secondary); /* Ensure bold text is clearly visible */
+    }
+
+    .carousel-btn {
+      /* Gradient style adjusted for better contrast */
+      background: linear-gradient(135deg, var(--primary), #8a2be2);
+      color: #fff;
+      padding: 20px 30px;
+      font-size: 1.1rem;
+      border-radius: 9999px; /* Pill shape */
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s ease;
+      box-shadow: 0 4px 12px rgba(91, 10, 255, 0.4);
+      display: inline-block;
+      margin-top: 10px; /* Space below the text */
+    }
+
+    .carousel-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(91, 10, 255, 0.6);
+      color: white;
+    }
+
+    .carousel-wrapper:hover .carousel-track {
+      animation-play-state: paused;
+    }
+
+    /* Keyframes adjusted to use a larger percentage to ensure seamless looping */
+    @keyframes scrollInfinite {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        /* Based on 10 unique items + 5 duplicates, covering about 15 items wide */
+        transform: translateX(calc(-1 * (300px + 35px) * 10));
+      }
+    }
+
+    /* --- MOBILE RESPONSIVENESS --- */
+    @media (max-width: 768px) {
+      .keynote-carousel-section {
+        padding: 40px 0;
+      }
+      .carousel-title {
+        font-size: 2.5rem;
+      }
+      .carousel-subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+      }
+
+      /* Make the carousel items slightly smaller but prioritize height for content */
+      .carousel-item {
+        min-width: 250px;
+        max-width: 250px;
+        min-height: 400px; /* Ensure sufficient height */
+        padding: 15px;
+      }
+
+      .carousel-item img {
+        height: 65%; /* Adjusted for more space for text below */
+      }
+
+      .carousel-item h3 {
+        font-size: 1.1rem;
+        margin-bottom: 5px;
+      }
+
+      .carousel-item p {
+        font-size: 0.9rem;
+        min-width: 90%;
+        max-width: 90%;
+        padding: 0;
+      }
+      .carousel-btn {
+        padding: 20px 30px;
+        font-size: 1rem;
+      }
+
+      /* Adjust animation translation for smaller screens if necessary, 
+         but using calc based on item count is generally more robust */
+      @keyframes scrollInfinite {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(calc(-1 * (250px + 35px) * 10));
+        }
+      }
+    }
+    .name {
+      font-size: 1.2rem !important;
+    }
+  </style>
+  <body>
+    <section class="keynote-carousel-section">
+      <h2 class="carousel-title">KEYNOTE SPEAKERS</h2>
+      <p class="carousel-subtitle">MEET OUR 2026 KEYNOTE SPEAKERS</p>
+
+      <div class="carousel-wrapper">
+        <div class="carousel-track">
+          <!-- 1. PAUL -->
+          <div class="carousel-item">
+            <img
+              src="https://panafricanaisummit.com/storage/media/GHpGk3ktfp2Co91mHTJNW1LQHVNJGYlo6o6V9sgI.jpg"
+              alt="Paul Crafer"
+              onerror="this.onerror=null;this.src='https://placehold.co/300x400/8A2BE2/ffffff?text=Image+Not+Found'"
+            />
+            <h3 class="name">Paul Crafer, FHCA, SWE</h3>
+            <p>
+              AI Assurance & Audit Services <br />
+              <b>EMEA</b>
+            </p>
+          </div>
+
+          <!-- 2. REGINALD -->
+          <div class="carousel-item">
+            <img
+              src="https://panafricanaisummit.com/storage/media/0eXCiUqQ9m0Ii8Gwhu8lR0lxCU6mjCvDEbr2K0ce.jpg"
+              alt="Reginald Ankrah"
+              onerror="this.onerror=null;this.src='https://placehold.co/300x400/8A2BE2/ffffff?text=Image+Not+Found'"
+            />
+            <h3 class="name">Reginald Ankrah, PhD, UK</h3>
+            <p>
+              AI & Data Consultant <br />
+              <b>Accenture UK</b>
+            </p>
+          </div>
+
+          <!-- 2. George Adjabeng -->
+          <div class="carousel-item">
+            <img
+              src="https://panafricanaisummit.com/storage/media/5MxJFyvINJbbguxV6H8oNOPp1c0aT5xCmVSnslHL.jpg"
+              alt="George Adjabeng"
+              onerror="this.onerror=null;this.src='https://placehold.co/300x400/8A2BE2/ffffff?text=Image+Not+Found'"
+            />
+            <h3 class="name">George Adjabeng</h3>
+            <p>
+              Head of Innovation <b><br />Societe Generale</b>
+            </p>
+          </div>
+
+          <!-- 3. Andreas Horn -->
+          <div class="carousel-item">
+            <img
+              src="https://panafricanaisummit.com/storage/media/Htm4ja5pK1ohgQRwIb6tLqCB4DDQjG56rhaiw0JJ.jpg"
+              alt="Andreas Horn"
+              onerror="this.onerror=null;this.src='https://placehold.co/300x400/8A2BE2/ffffff?text=Image+Not+Found'"
+            />
+            <h3 class="name">Andreas Horn</h3>
+            <p>Head of AIOps <br /><b>IBM Germany</b></p>
+          </div>
+
+          <!-- 4. DARLINGTON -->
+          <div class="carousel-item">
+            <img
+              src="https://panafricanaisummit.com/storage/media/4Ndjp0iX7LnxCPKctTnsx5aRqJpp81ZBC3a5SIsE.jpg"
+              alt="Darlington"
+              onerror="this.onerror=null;this.src='https://placehold.co/300x400/8A2BE2/ffffff?text=Image+Not+Found'"
+            />
+            <h3 class="name">Darlington Akogo</h3>
+            <p>CEO, <b>minoHealth</b> | AI4Radiology Chair, UN</p>
+          </div>
+
+          <!-- 5. TIM -->
+          <div class="carousel-item">
+            <img
+              src="https://panafricanaisummit.com/storage/media/nV6feYYGLNWlFCVN7zaKRTfP2cAHoKFoytnBJPte.jpg"
+              alt="Tim"
+              onerror="this.onerror=null;this.src='https://placehold.co/300x400/8A2BE2/ffffff?text=Image+Not+Found'"
+            />
+            <h3 class="name">Dr. Tim Schneller</h3>
+            <p>Founder <b>Collab Inspire, USA</b> | Lecturer</p>
+          </div>
+
+          <!-- 6. RICHARD -->
+          <div class="carousel-item">
+            <img
+              src="https://panafricanaisummit.com/storage/media/bPgmdT4GWh31ogkJpmwNoHYqxTZnmOC1rBJCmaL0.jpg"
+              alt="Richard Quainoo"
+              onerror="this.onerror=null;this.src='https://placehold.co/300x400/8A2BE2/ffffff?text=Image+Not+Found'"
+            />
+            <h3 class="name">Richard Quainoo</h3>
+            <p>AI & Data Consultant <br /><b>Deloitte</b></p>
+          </div>
+
+          <!-- 7. JASON -->
+          <div class="carousel-item">
+            <img
+              src="https://panafricanaisummit.com/storage/media/5pyPs3SawAImzAdLe5M6WToJn8kZShhpe3nVh1La.jpg"
+              alt="Jason"
+              onerror="this.onerror=null;this.src='https://placehold.co/300x400/8A2BE2/ffffff?text=Image+Not+Found'"
+            />
+            <h3 class="name">Jason Hickey</h3>
+            <p>
+              Former Head <br />
+              <b>Google Research Africa</b>
+            </p>
+          </div>
+
+          <!-- 8. NINA -->
+          <div class="carousel-item">
+            <img
+              src="https://panafricanaisummit.com/storage/media/0rCHGS13yqLVLIxALzSQRu0paJTCUi5491graTQh.jpg"
+              alt="Nina Korley"
+              onerror="this.onerror=null;this.src='https://placehold.co/300x400/8A2BE2/ffffff?text=Image+Not+Found'"
+            />
+            <h3 class="name">Nina Korley</h3>
+            <p>
+              Snr. Manager, Cyber Strategy & Transformation -
+              <b>Deloitte</b>
+            </p>
+          </div>
+
+          <!-- 9. EDWARD -->
+          <div class="carousel-item">
+            <img
+              src="https://panafricanaisummit.com/storage/media/BvGFFTJdtvuvd6avea3SdTDhYMVuwa9CeAifxjfc.jpg"
+              alt="Edward Aikins"
+              onerror="this.onerror=null;this.src='https://placehold.co/300x400/8A2BE2/ffffff?text=Image+Not+Found'"
+            />
+            <h3 class="speaker-name">Edward Aikins</h3>
+            <p class="speaker-role">
+              Senior Manager <br />
+              <b>Deloitte</b>
+            </p>
+          </div>
+
+          <!-- 10. MAXWELL -->
+          <div class="carousel-item">
+            <img
+              src="https://panafricanaisummit.com/storage/media/xQq13cBc1yrZpK0qsZp2wBJ7Rg0gt67b4gddjNWM.jpg"
+              alt="Maxwell Ababio"
+              onerror="this.onerror=null;this.src='https://placehold.co/300x400/8A2BE2/ffffff?text=Image+Not+Found'"
+            />
+            <h3 class="speaker-name">Maxwell Ababio</h3>
+            <p class="speaker-role">
+              Deputy Director, Technology & Ethics <br />
+              <b>Data Protection Commission</b>
+            </p>
+          </div>
+
+          <!-- Titi Akinsanmi-->
+          <div class="carousel-item">
+            <img
+              src="https://panafricanaisummit.com/storage/media/F8yeI3P3dqxypJTU3Uk70aNYFDKb2kgB1IFTUMw7.jpg"
+              alt="Titi Akinsanmi"
+              onerror="this.onerror=null;this.src='https://placehold.co/300x400/8A2BE2/ffffff?text=Image+Not+Found'"
+            />
+            <h3 class="name">Titi Akinsanmi</h3>
+            <p>
+              Global Policy Team Lead, Gemini & Gen AI Safety & Responsibility
+              <b>Google</b>
+            </p>
+          </div>
+
+          <!--Prof. Olivia A. T. Frimpong Kwapong, PhD-->
+          <div class="carousel-item">
+            <img
+              src="https://panafricanaisummit.com/storage/media/fJ2vrahVGCFEroWeNMYnxLslPOx74K1pCYGIVkua.jpg"
+              alt="Prof. Olivia A. T. Frimpong Kwapong, PhD"
+              onerror="this.onerror=null;this.src='https://placehold.co/300x400/8A2BE2/ffffff?text=Image+Not+Found'"
+            />
+            <h3 class="name">Prof. Olivia Frimpong Kwapong, PhD</h3>
+            <p>
+              Dean, School of Continuing and Dist. Edu., Dir. Digital Youth
+              Village & Centre for Digital Youth Dev.
+              <b><br />University of Ghana</b>
+            </p>
+          </div>
+
+          <!-- *** DUPLICATES START HERE (1-5 for seamless looping) *** -->
+
+          <!-- DUPLICATE 1. PAUL -->
+          <div class="carousel-item">
+            <img
+              src="https://panafricanaisummit.com/storage/media/GHpGk3ktfp2Co91mHTJNW1LQHVNJGYlo6o6V9sgI.jpg"
+              alt="Paul Crafer"
+              onerror="this.onerror=null;this.src='https://placehold.co/300x400/8A2BE2/ffffff?text=Image+Not+Found'"
+            />
+            <h3 class="name">Paul Crafer, FHCA, SWE</h3>
+            <p>
+              AI Assurance & Audit Services <br />
+              <b>EMEA</b>
+            </p>
+          </div>
+
+          <!-- DUPLICATE 2. REGINALD -->
+          <div class="carousel-item">
+            <img
+              src="https://panafricanaisummit.com/storage/media/0eXCiUqQ9m0Ii8Gwhu8lR0lxCU6mjCvDEbr2K0ce.jpg"
+              alt="Reginald Ankrah"
+              onerror="this.onerror=null;this.src='https://placehold.co/300x400/8A2BE2/ffffff?text=Image+Not+Found'"
+            />
+            <h3 class="name">Reginald Ankrah, PhD, UK</h3>
+            <p>
+              Trustworthy AI | AI Consultant <br />
+              <b>Accenture UK</b>
+            </p>
+          </div>
+
+          <!-- DUPLICATE 3. Andreas Horn -->
+          <div class="carousel-item">
+            <img
+              src="https://panafricanaisummit.com/storage/media/Htm4ja5pK1ohgQRwIb6tLqCB4DDQjG56rhaiw0JJ.jpg"
+              alt="Andreas Horn"
+              onerror="this.onerror=null;this.src='https://placehold.co/300x400/8A2BE2/ffffff?text=Image+Not+Found'"
+            />
+            <h3 class="name">Andreas Horn, Germany</h3>
+            <p>
+              Head of AIOps <br />
+              <b>IBM</b>
+            </p>
+          </div>
+
+          <!-- DUPLICATE 4. DARLINGTON -->
+          <div class="carousel-item">
+            <img
+              src="https://panafricanaisummit.com/storage/media/4Ndjp0iX7LnxCPKctTnsx5aRqJpp81ZBC3a5SIsE.jpg"
+              alt="Darlington"
+              onerror="this.onerror=null;this.src='https://placehold.co/300x400/8A2BE2/ffffff?text=Image+Not+Found'"
+            />
+            <h3 class="name">Darlington Akogo</h3>
+            <p>CEO, <b>minoHealth</b> | AI4Radiology Chair, UN</p>
+          </div>
+
+          <!-- DUPLICATE 4. Abena Nyamesem Esq -->
+          <div class="carousel-item">
+            <img
+              src="https://panafricanaisummit.com/storage/media/XsqcNATWEYDxT710mht72bW7mO64d82AjrxDpN4U.jpg"
+              alt="Abena Nyamesem Esq"
+              onerror="this.onerror=null;this.src='https://placehold.co/300x400/8A2BE2/ffffff?text=Image+Not+Found'"
+            />
+            <h3 class="name">Abena Nyamesem Esq</h3>
+            <p>CEO, <b>GIFEC</b> | Environmental & Sustainability Consultant</p>
+          </div>
+
+          <!-- DUPLICATE 5. TIM -->
+          <div class="carousel-item">
+            <img
+              src="https://panafricanaisummit.com/storage/media/nV6feYYGLNWlFCVN7zaKRTfP2cAHoKFoytnBJPte.jpg"
+              alt="Tim"
+              onerror="this.onerror=null;this.src='https://placehold.co/300x400/8A2BE2/ffffff?text=Image+Not+Found'"
+            />
+            <h3 class="name">Dr. Tim Schneller, USA</h3>
+            <p>Founder <b>Collab Inspire</b> | Lecturer</p>
+          </div>
+        </div>
+      </div>
+      <div class="center">
+        <a
+          href="https://panafricanaisummit.com/speaker-registration#speakers"
+          class="carousel-btn btn"
+          >View More Speakers</a
+        >
+      </div>
+    </section>
+  </body>
+</html>

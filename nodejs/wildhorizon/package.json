@@ -1,0 +1,13 @@
+{
+  "name": "wild-horizon",
+  "version": "1.0.0",
+  "description": "A dataset of the kost interesting places on earth",
+  "license": "ISC",
+  "author": "Xclusiv-Tech",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --watch server.js"
+  }
+}

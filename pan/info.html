@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PAAIS Pro Infographic</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <style>
+      :root {
+        --accent: #9026c8; /* Deep Purple */
+        --primary: #000850; /* Midnight Blue */
+        --secondary: #102c6a; /* Royal Blue */
+        --text-white: #ffffff;
+        --text-dim: rgba(255, 255, 255, 0.8);
+        /* High-contrast border for the light background image */
+        --border-color: rgba(0, 8, 80, 0.6);
+        --primary-font: "Inter", "Segoe UI", sans-serif;
+      }
+
+      body {
+        /* Background Image fixed to cover the screen */
+        background: url("https://panafricanaisummit.com/storage/media/K15mVxpYFwj0aLM8WCpZBUUmeuf4PfXpvi2ED0vh.png");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        color: var(--text-white);
+        font-family: var(--primary-font);
+        margin: 0;
+        padding: 0;
+      }
+
+      /* --- THE FLEX CONTAINER --- */
+      .stats-container {
+        display: flex;
+        width: 100%;
+        max-width: 1600px;
+        margin: 80px auto;
+        border: none; /* No top or bottom borders */
+        background: transparent; /* Ensure it stays clean */
+      }
+
+      /* --- DESKTOP: SINGLE LINE --- */
+      @media (min-width: 1025px) {
+        .stats-container {
+          flex-direction: row;
+          flex-wrap: nowrap;
+        }
+        .stat-column {
+          flex: 1;
+          border-right: 2px solid var(--border-color);
+        }
+        .stat-column:last-child {
+          border-right: none;
+        }
+      }
+
+      /* --- MOBILE: 2-COLUMN GRID (CENTER AXIS ONLY) --- */
+      @media (max-width: 1024px) {
+        .stats-container {
+          flex-wrap: wrap;
+        }
+        .stat-column {
+          flex: 0 0 50%;
+          box-sizing: border-box;
+        }
+        /* Vertical split line only as per reference image */
+        .stat-column:nth-child(odd) {
+          border-right: 2px solid var(--border-color);
+        }
+      }
+
+      /* --- STYLING & ANIMATION --- */
+      .stat-column {
+        height: 380px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        cursor: pointer;
+        overflow: hidden;
+        transition: all 0.4s ease;
+        z-index: 1;
+      }
+
+      /* THE "BLIND" TRANSITION BARS */
+      .bg-bars {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        z-index: -1;
+        pointer-events: none;
+      }
+
+      .bar {
+        flex: 1;
+        background-color: var(--secondary);
+        height: 100%;
+        transform: scaleY(0);
+        transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+        opacity: 0.95;
+      }
+
+      .bar:nth-child(2) {
+        transition-delay: 0.05s;
+      }
+      .bar:nth-child(3) {
+        transition-delay: 0.1s;
+      }
+      .bar:nth-child(4) {
+        transition-delay: 0.15s;
+      }
+
+      .stat-column:hover .bar {
+        transform: scaleY(1);
+      }
+
+      /* ICON BOX */
+      .icon-box {
+        background-color: var(--accent);
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 25px;
+        transition: 0.4s ease;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .stat-column:hover .icon-box {
+        transform: scale(1.15);
+        background-color: var(--primary);
+        box-shadow: 0 0 25px var(--accent);
+      }
+
+      .icon-box i {
+        font-size: 40px;
+        color: var(--text-white);
+      }
+
+      .number {
+        font-size: 3.8rem;
+        font-weight: 800;
+        margin: 0;
+        line-height: 1;
+        /* Strong shadow to stand out against light parts of the background */
+        text-shadow: 0 4px 10px rgba(0, 8, 80, 0.5);
+        color: var(--primary); /* Deep blue numbers for contrast */
+      }
+
+      .label {
+        font-size: 0.9rem;
+        color: var(--secondary); /* Darker blue for labels */
+        margin-top: 15px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        text-align: center;
+        font-weight: 800;
+      }
+
+      /* Text turns white on hover over the blue bars */
+      .stat-column:hover .number,
+      .stat-column:hover .label {
+        color: white;
+        text-shadow: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="stats-container">
+      <div class="stat-column">
+        <div class="bg-bars">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+        <div class="icon-box"><i class="fa-solid fa-earth-africa"></i></div>
+        <div class="number" data-target="20" data-suffix="+">0</div>
+        <div class="label">Nations</div>
+      </div>
+
+      <div class="stat-column">
+        <div class="bg-bars">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+        <div class="icon-box"><i class="fa-solid fa-users-viewfinder"></i></div>
+        <div class="number" data-target="1000" data-suffix="+">0</div>
+        <div class="label">In Delegates</div>
+      </div>
+
+      <div class="stat-column">
+        <div class="bg-bars">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+        <div class="icon-box"><i class="fa-solid fa-route"></i></div>
+        <div class="number" data-target="8" data-suffix="">0</div>
+        <div class="label">Conference Tracks</div>
+      </div>
+
+      <div class="stat-column">
+        <div class="bg-bars">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+        <div class="icon-box"><i class="fa-solid fa-building-columns"></i></div>
+        <div class="number" data-target="10" data-suffix="">0</div>
+        <div class="label">Exhibitors</div>
+      </div>
+
+      <div class="stat-column">
+        <div class="bg-bars">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+        <div class="icon-box"><i class="fa-solid fa-handshake"></i></div>
+        <div class="number" data-target="28" data-suffix="">0</div>
+        <div class="label">Partners & Sponsors</div>
+      </div>
+
+      <div class="stat-column">
+        <div class="bg-bars">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+        <div class="icon-box"><i class="fa-solid fa-rocket"></i></div>
+        <div class="number" data-target="100" data-suffix="+">0</div>
+        <div class="label">Startups & Investors</div>
+      </div>
+    </div>
+
+    <script>
+      function startCounter(counter) {
+        const target = +counter.getAttribute("data-target");
+        const suffix = counter.getAttribute("data-suffix");
+        let start = null;
+        const duration = 2000;
+
+        const step = (ts) => {
+          if (!start) start = ts;
+          const progress = Math.min((ts - start) / duration, 1);
+          counter.innerText =
+            Math.floor(progress * target).toLocaleString() + suffix;
+          if (progress < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      }
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const counters = entry.target.querySelectorAll(".number");
+              counters.forEach((num) => startCounter(num));
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+
+      window.onload = () => {
+        const target = document.querySelector(".stats-container");
+        if (target) observer.observe(target);
+      };
+    </script>
+  </body>
+</html>

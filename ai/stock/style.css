@@ -262,6 +262,7 @@ button:disabled {
   flex-direction: column;
   width: 80%; /* Wider bars look better in the card */
   max-width: 300px;
+  margin-top: 100px;
 }
 
 .loading-bar {
@@ -358,4 +359,15 @@ button:disabled {
 
 #report-output::-webkit-scrollbar-thumb:hover {
   background-color: hsl(var(--primary-hover));
+}
+
+svg {
+  position: absolute;
+  width: 240px;
+  height: 120px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
 }

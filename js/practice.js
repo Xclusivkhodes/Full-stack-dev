@@ -134,10 +134,10 @@
 // };
 // giveAdminAccess("admin", "Felix", "Paulina", "Nina", "Grandvillia");
 
-let price = [3, 7, 8, 9];
+// let price = [3, 7, 8, 9];
 
-const sum = (acc, cur) => acc + cur;
+// const sum = (acc, cur) => acc + cur;
 
-let total = price.reduce(sum, 0);
+// let total = price.reduce(sum, 0);
 
-console.log(total);
+// console.log(total);
