@@ -1,0 +1,16 @@
+{
+  "name": "lets-talk",
+  "version": "1.0.0",
+  "description": "This is a blog post backend",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --watch server.js"
+  },
+  "keywords": [
+    "blogging"
+  ],
+  "author": "Xclusiv",
+  "license": "ISC",
+  "type": "module"
+}
