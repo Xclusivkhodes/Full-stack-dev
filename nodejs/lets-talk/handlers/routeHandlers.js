@@ -1,3 +1,4 @@
+import { sightingEvent } from "../events/sightingEvents.js";
 import { addNewSighting } from "../utils/addNewSighting.js";
 import { getData } from "../utils/getData.js";
 import { parseJSONBody } from "../utils/parseJSONBody.js";
@@ -13,9 +14,9 @@ export const handleGet = async (res) => {
 export const handlePost = async (req, res) => {
   try {
     const parsedBody = await parseJSONBody(req);
-
     const data = sanitizeObject(parsedBody);
     sendResposne(res, "application/json", JSON.stringify(data), 201);
+    sightingEvent.emit("sighting-added", data);
     addNewSighting(data);
   } catch (err) {
     sendResposne(res, "application/json", JSON.stringify({ err: err }), 400);
