@@ -12,5 +12,8 @@
   ],
   "author": "Xclusiv",
   "license": "ISC",
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "sanitize-html": "^2.17.0"
+  }
 }
