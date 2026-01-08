@@ -17,5 +17,3 @@ export const getData = async () => {
     ];
   }
 };
-
-getData();

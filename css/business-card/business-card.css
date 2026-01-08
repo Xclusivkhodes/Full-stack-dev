@@ -16,6 +16,7 @@ body {
   background: #0061bd;
   color: #d8cefe;
   font-family: quicksand, poppins, gagalin;
+  transition: 1s ease-out;
 }
 
 .card:hover {
