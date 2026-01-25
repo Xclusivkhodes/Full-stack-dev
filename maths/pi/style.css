@@ -1,0 +1,38 @@
+body {
+  background-color: black;
+  display: grid;
+  height: 100vh;
+  place-items: center;
+  /* margin: 0;
+  padding: 0; */
+  overflow: hidden;
+}
+
+#canvas {
+  margin-inline: auto;
+  border: 2px white solid;
+  height: 85vh;
+  width: 90vw;
+  overflow: hidden;
+}
+
+button {
+  height: 50px;
+  width: 200px;
+  border-radius: 200px;
+  background-color: blue;
+  color: white;
+  border: none;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 675px) {
+  #canvas {
+    height: 20vh;
+    width: 90vw;
+  }
+  .hello {
+    content: "For mobile please rotate your screen";
+  }
+}

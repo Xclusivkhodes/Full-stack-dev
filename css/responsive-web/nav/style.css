@@ -1,0 +1,336 @@
+/*==================
+     ESSENTIALS
+====================*/
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/*==================
+       LAYOUT
+====================*/
+
+header {
+  background-color: #f8f8f8;
+  padding: 2em 0;
+}
+
+img {
+  width: 100%;
+}
+
+h2:first-child {
+  margin-top: 0;
+  line-height: normal;
+}
+
+footer {
+  background-color: #143774;
+  color: white;
+  text-align: center;
+  padding: 3em;
+}
+footer > strong,
+footer > p {
+  opacity: 53%;
+}
+
+.container {
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.flex-container {
+  width: 90%;
+  max-width: 900px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.nav-container {
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.link {
+  margin: 0.5em;
+}
+
+.featured-article {
+  border-bottom: 1px solid #707070;
+  padding-bottom: 2em;
+  margin-bottom: 1em;
+}
+
+.recent-article {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2em;
+}
+
+.recent-article-image {
+  height: 300px;
+  object-fit: cover;
+}
+
+.recent-article-content {
+  order: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.recent-article-image-container {
+  order: 1;
+}
+
+.mt-20 {
+  margin-top: 5%;
+}
+
+.mm {
+  margin-bottom: 20px;
+  height: 308px;
+  object-fit: cover;
+}
+
+.b-0 {
+  border: none;
+}
+
+.featured-article-image {
+  order: 1;
+}
+
+.article-info {
+  order: 2;
+}
+
+.article-heading {
+  order: 3;
+}
+
+.article-content {
+  order: 4;
+}
+
+.article-read-more {
+  order: 5;
+}
+
+/* Widgets*/
+
+.sidebar-widget {
+  border: #efefef solid 20px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.sidebar-widget-image {
+  order: 1;
+  margin: 1em 0;
+  height: 250px;
+  object-fit: cover;
+}
+
+.sidebar-widget-text {
+  order: 2;
+  margin: 1em 0;
+}
+
+.sidebar-widget-recent-post {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px #707070 solid;
+  margin: 0.5em 0;
+}
+
+.sidebar-widget-recent-post:last-child {
+  border-bottom: none;
+}
+
+.sidebar-widget-recent-post-image {
+  order: 1;
+  margin: 1em 0;
+}
+
+.sidebar-widget-recent-post-heading {
+  order: 2;
+  margin-bottom: 1em;
+}
+
+/*==================
+      TYPOGRAPHY
+====================*/
+
+body {
+  font-family: Ubuntu;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav a {
+  color: #707070;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0;
+  padding: 0.25em 0;
+}
+
+nav a:hover,
+nav a:focus {
+  color: #1792d2;
+}
+
+h1,
+h2,
+h3 {
+  color: #143774;
+  font-family: Lora;
+  font-weight: 400;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+strong {
+  font-weight: 700;
+}
+
+.main {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #1792d2;
+  text-align: center;
+}
+
+.title {
+  margin: 1.5em 0;
+}
+
+.current-page {
+  border-bottom: 2px solid #707070;
+}
+
+.current-page:hover,
+.current-page:focus {
+  color: #707070;
+}
+
+.article-read-more {
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: #1792d2;
+  text-decoration: none;
+}
+
+.article-read-more:hover,
+.article-read-more:focus {
+  text-decoration: underline;
+  color: #143774;
+}
+
+.article-heading {
+  margin: 0.4em 0 1em 0;
+}
+
+.article-info {
+  color: #707070;
+  font-size: 0.875rem;
+  font-weight: light;
+  margin: 1em 0;
+}
+
+.article-content {
+  color: #707070;
+  font-weight: light;
+  font-size: 1.125rem;
+  margin-bottom: 1em;
+}
+
+.sidebar-widget-heading {
+  font-family: Ubuntu;
+  font-weight: 700;
+}
+
+.featured-article-link {
+  color: #1792d2;
+}
+
+.featured-article-link:hover,
+.featured-article-link:focus {
+  color: #143774;
+}
+
+.featured-heading {
+  color: #1792d2;
+  font-size: 1.5rem;
+  font-family: Lora;
+  font-weight: 600;
+}
+
+/*==================
+    MEDIA QUERIES
+====================*/
+
+@media (min-width: 675px) {
+  .flex-container {
+    flex-direction: row;
+  }
+
+  main {
+    width: 70%;
+  }
+
+  aside {
+    width: 25%;
+    min-width: 200px;
+    margin-left: 1em;
+  }
+
+  .nav-links {
+    flex-direction: row;
+  }
+
+  .recent-article {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .recent-article-image-container {
+    width: 32%;
+  }
+
+  .recent-article-content {
+    width: 65%;
+  }
+
+  .featured-article {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar-widget-image {
+    height: 130px;
+  }
+}
