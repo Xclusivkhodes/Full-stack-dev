@@ -1,0 +1,132 @@
+/*------------------- 
+   CUSTOM PROPERTIES
+---------------------*/
+
+:root {
+  --clr-dark: 230 35% 7%;
+  --clr-light: 231 77% 90%;
+  --clr-white: 0 0% 100%;
+}
+
+/*------------------- 
+        RESET
+---------------------*/
+
+/* BOX-SIZING */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* MARGINS */
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+picture {
+  margin: 0;
+}
+
+/* Set-Up The Body */
+
+body {
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Make Images Easy To Work With */
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Make Forms Easy To Work WIth */
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important ;
+  }
+}
+
+/*------------------- 
+    UTILITY CLASSES
+---------------------*/
+
+/* General */
+
+.flex {
+  display: flex;
+  gap: var(--gap, 1rem);
+}
+
+.grid {
+  display: grid;
+  gap: var(--gap, 1rem);
+}
+
+.container {
+  max-width: 80rem;
+  width: 90%;
+  margin-inline: auto;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Colors */
+
+.bg-dark {
+  background-color: hsl(var(--clr-dark));
+}
+
+.bg-white {
+  background-color: hsl(var(--clr-white));
+}
+
+.bg-accent {
+  background-color: hsl(var(--clr-light));
+}
+
+/* Text */
+
+.txt-white {
+  color: hsl(var(--clr-white));
+}
+
+.txt-dark {
+  color: hsl(var(--clr-dark));
+}
+
+.txt-accent {
+  color: hsl(var(--clr-light));
+}
