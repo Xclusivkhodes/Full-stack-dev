@@ -1,12 +1,12 @@
 {
   "version": 2,
   "functions": {
-    "server.js": {
+    "api/index.js": {
       "includeFiles": "public/**, data/**, utils/**, handlers/**, events/**"
     }
   },
   "routes": [
-    { "src": "^/api/(.*)", "dest": "/server.js" },
-    { "src": "^/(.*)$", "dest": "/server.js" }
+    { "src": "^/api/(.*)", "dest": "/api/index.js" },
+    { "src": "^/(.*)$", "dest": "/api/index.js" }
   ]
 }
