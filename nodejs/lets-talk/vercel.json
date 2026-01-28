@@ -2,12 +2,11 @@
   "version": 2,
   "functions": {
     "api/index.js": {
-      "includeFiles": "public/**/*",
-      "excludeFiles": "**/*.map"
+      "includeFiles": "public/**/*,data/**,utils/**,handlers/**,events/**"
     }
   },
   "routes": [
     { "src": "^/api/(.*)", "dest": "/api/index.js" },
-    { "src": "^/(.*)$", "dest": "/api/index.js" }
+    { "src": "^/(?!api/)(.*)$", "dest": "/api/index.js?url=$1" }
   ]
 }

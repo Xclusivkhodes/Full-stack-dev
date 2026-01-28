@@ -15,20 +15,31 @@ const ROOT_DIR = path.join(__dirname, "..");
 // Export as a default handler for Vercel
 export default async (req, res) => {
   try {
-    if (req.url === "/api") {
-      if (req.method === "GET") {
-        handleGet(res);
-      } else if (req.method === "POST") {
-        handlePost(req, res);
+    // Normalize URL
+    let url = req.url || "/";
+    if (url.includes("?")) {
+      url = url.split("?")[0];
+    }
+
+    if (url === "/api" || url.startsWith("/api/")) {
+      if (url === "/api") {
+        if (req.method === "GET") {
+          handleGet(res);
+        } else if (req.method === "POST") {
+          handlePost(req, res);
+        }
+      } else if (url === "/api/news") {
+        return await handleNews(res);
+      } else {
+        res.statusCode = 404;
+        res.setHeader("Content-Type", "text/plain");
+        res.end("404 Not Found");
       }
-    } else if (req.url === "/api/news") {
-      return await handleNews(res);
-    } else if (!req.url.startsWith("/api")) {
-      return await serveStatic(ROOT_DIR, res, req);
     } else {
-      res.statusCode = 404;
-      res.setHeader("Content-Type", "text/plain");
-      res.end("404 Not Found");
+      // Serve static files, treating root and missing files as index.html requests
+      const urlToServe = url === "/" ? "/index.html" : url;
+      const modifiedReq = { ...req, url: urlToServe };
+      return await serveStatic(ROOT_DIR, res, modifiedReq);
     }
   } catch (error) {
     console.error("Error:", error);
