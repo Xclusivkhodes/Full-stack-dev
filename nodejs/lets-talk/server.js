@@ -6,7 +6,7 @@ import { handleGet, handlePost } from "./handlers/routeHandlers.js";
 import { handleNews } from "./handlers/routeHandlers.js";
 
 const PORT = 8000;
-const __dirname = import.meta.dirname;
+const __dirname = process.cwd;
 
 const server = http.createServer(async (req, res) => {
   if (req.url === "/api") {
