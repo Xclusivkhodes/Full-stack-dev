@@ -2,7 +2,7 @@
   "version": 2,
   "functions": {
     "api/index.js": {
-      "includeFiles": "public/**,data/**,utils/**,handlers/**,events/**,node_modules/**"
+      "includeFiles": "public/**,data/**,utils/**,handlers/**,events/**"
     }
   },
   "routes": [

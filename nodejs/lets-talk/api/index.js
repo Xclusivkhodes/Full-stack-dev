@@ -9,6 +9,9 @@ import { handleNews } from "../handlers/routeHandlers.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// The root is two levels up from api/index.js
+const ROOT_DIR = path.join(__dirname, "..");
+
 // Export as a default handler for Vercel
 export default async (req, res) => {
   try {
@@ -21,8 +24,7 @@ export default async (req, res) => {
     } else if (req.url === "/api/news") {
       return await handleNews(res);
     } else if (!req.url.startsWith("/api")) {
-      const rootDir = path.join(__dirname, "..");
-      return await serveStatic(rootDir, res, req);
+      return await serveStatic(ROOT_DIR, res, req);
     } else {
       res.statusCode = 404;
       res.setHeader("Content-Type", "text/plain");
