@@ -5,10 +5,10 @@ import { serveStatic } from "./utils/serveStatic.js";
 import { handleGet, handlePost } from "./handlers/routeHandlers.js";
 import { handleNews } from "./handlers/routeHandlers.js";
 
-const PORT = 8000;
 const __dirname = process.cwd();
 
-const server = http.createServer(async (req, res) => {
+// Vercel calls this default export for every incoming request
+export default async function handler(req, res) {
   if (req.url === "/api") {
     if (req.method === "GET") {
       handleGet(res);
@@ -22,8 +22,6 @@ const server = http.createServer(async (req, res) => {
     return await serveStatic(__dirname, res, req);
   } else {
     res.statusCode = 404;
-    serveStatic(__dirname, res, req);
+    return await serveStatic(__dirname, res, req);
   }
-});
-
-server.listen(PORT, () => console.log(`Server listening at Port ${PORT}`));
+}
