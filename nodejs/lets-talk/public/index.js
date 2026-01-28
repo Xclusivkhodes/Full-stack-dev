@@ -2,7 +2,7 @@ try {
   const data = await fetch("/api");
   const response = await data.json();
   console.log("API Response:", response);
-  
+
   if (response && Array.isArray(response)) {
     renderCards(response);
   } else {
@@ -27,16 +27,16 @@ function renderCards(cardsData) {
     console.error("Cards container not found");
     return;
   }
-  
+
   let cardsHTML = "";
 
   cardsData.forEach((card, i) => {
     cardsHTML += `
   <article class="sighting-card" aria-labelledby="sighting-title-${i}">
-    <p class="card-details">${card.timeStamp || 'Unknown time'}, ${card.location || 'Unknown location'}</p>
-    <h3 id="sighting-title-${i}">${card.title || 'Untitled'}</h3>
+    <p class="card-details">${card.timeStamp || "Unknown time"}, ${card.location || "Unknown location"}</p>
+    <h3 id="sighting-title-${i}">${card.title || "Untitled"}</h3>
     <div class="sighting-text-wrapper">
-      <p class="sighting-text">${card.text || 'No description'}</p>
+      <p class="sighting-text">${card.text || "No description"}</p>
     </div>
     <button class="read-more-btn" aria-expanded="false">Read in full</button>
   </article>
