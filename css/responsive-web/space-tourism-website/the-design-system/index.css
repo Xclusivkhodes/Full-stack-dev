@@ -130,3 +130,40 @@ select {
 .txt-accent {
   color: hsl(var(--clr-light));
 }
+
+.txt-end {
+  display: flex;
+  align-items: end;
+  font-size: 1.6rem;
+}
+
+/* Width */
+
+.w-100 {
+  width: 100%;
+}
+
+.w-30 {
+  width: 30%;
+}
+
+.w-auto {
+  width: auto;
+}
+
+/* Height */
+
+.h-160 {
+  height: 160px;
+  margin-bottom: 10px;
+}
+
+/* Layout */
+
+.flex-between {
+  justify-content: space-between;
+}
+
+.grid-3row {
+  grid-template-columns: repeat(3, 1fr);
+}

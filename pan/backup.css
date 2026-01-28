@@ -192,26 +192,38 @@
   width: 20%;
 }
 
+/*.col-lg-6 {
+     display: grid;
+     grid-template-columns: 300px 1fr;
+      grid-auto-rows: auto;
+     gap: 1px !important;
+      min-width: 0;
+}
+
 .cs_pricing_table {
-  background: linear-gradient(
-    145deg,
-    var(--primary),
-    var(--secondary),
-    var(--primary)
-  );
-  height: 600px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+     background: linear-gradient(145deg, var(--primary), var(--secondary),var(--primary));
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+     padding: 80px 70px !important;
+     border-radius: 20px !important;
+}
+
+.cs_pricing_table.cs_style_1 .cs_price  {
+    display: none;
+}
+
+.cs_pricing_table.cs_style_1 .cs_pricing_info  {
+     justify-content: center;
 }
 
 .cs_pricing_table h2 {
-  color: white;
+    color: white;
 }
 
 .cs_pricing_table span {
-  color: white;
-}
+    color: white;
+}*/
 
 .container-fluid a::after {
   content: "";
@@ -257,23 +269,25 @@
 }
 .cs_moving_section {
   margin: 0px 0px;
-  padding: 2px 0px;
-  gap: 10px;
+  padding: 5px 0px;
+  gap: 15px;
 }
 
-/* THIN FULL-WIDTH PROMO BANNER - TARGETED GLOBALLY */
-section:has(.cs_moving_section_wrap) {
+/* GLOBAL RESET & BODY SPACING */
+body {
+  padding-top: 36px !important;
+}
+
+/* THIN FULL-WIDTH PROMO BANNER */
+.summit-promo-banner {
   position: fixed !important;
   top: 0 !important;
   left: 0 !important;
   width: 100% !important;
-  transform: none !important;
-  max-width: 100% !important;
   z-index: 10000 !important;
   margin: 0 !important;
   background-image: url("/storage/media/gBN97rhTP8kuJiUfELteLlK5oi0j81Th4xjGXQpi.png") !important;
   background-color: rgb(255, 255, 255) !important;
-  border-radius: 0 !important;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
   overflow: hidden !important;
   padding: 4px 0 !important;
@@ -283,110 +297,69 @@ section:has(.cs_moving_section_wrap) {
   justify-content: center !important;
 }
 
-/* THINNER TEXT FOR PROMO BANNER */
-section:has(.cs_moving_section_wrap) .cs_moving_section {
-  color: #20bcde !important;
+/* MARQUEE CONTAINER LOGIC */
+.summit-marquee-container {
+  height: 28px !important;
+  display: flex !important;
+  align-items: center !important;
+  overflow: hidden !important;
+  width: 100%;
+}
+
+.summit-marquee-track {
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.summit-marquee-text {
+  color: #fa1ffc !important;
   font-weight: 500 !important;
   white-space: nowrap !important;
   font-size: 18px !important;
   line-height: 1 !important;
   margin: 0 !important;
   padding: 0 !important;
+  animation: summit-scroll-left 40s linear infinite !important;
 }
 
-section:has(.cs_moving_section_wrap) .cs_moving_section.cs_fs_120 {
+.summit-marquee-text.summit-text-large {
   font-size: 16px !important;
 }
 
-section:has(.cs_moving_section_wrap) .cs_moving_duration_40 {
-  animation-duration: 40s !important;
+/* ANIMATION KEYFRAMES */
+@keyframes summit-scroll-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
-section:has(.cs_moving_section_wrap) .cs_moving_section_wrap {
-  height: 28px !important;
-  display: flex !important;
-  align-items: center !important;
-  overflow: hidden !important;
-}
-
-section:has(.cs_moving_section_wrap) .cs_moving_section_in {
-  height: 100% !important;
-  display: flex !important;
-  align-items: center !important;
-}
-
-/* REMOVE THE MARGIN FROM NAVBAR CONTAINER */
-.container-fluid[style*="margin-top: 10rem"] {
-  margin-top: 0 !important;
-}
-
-/* === HEADER BACKGROUND COLOR LOGIC === */
-/* When NOT sticky - Blue background for container-fluid */
-.cs_site_header.cs_style_1.cs_color_1.cs_sticky_header:not(.cs_sticky_active)
-  .container-fluid {
-  background-color: #01267e !important;
-}
-
-/* When sticky active - Keep theme's primary color */
-.cs_site_header.cs_style_1.cs_color_1.cs_sticky_header.cs_sticky_active
-  .container-fluid {
-  background-color: var(--primary) !important;
-}
-
-.container-fluid {
-  margin-top: 0 !important;
-  transition: background-color 0.3s ease !important; /* Smooth transition */
-}
-
-/* === CRITICAL FIXES === */
-/* Add body padding to create space for banner */
-body {
-  padding-top: 36px !important;
-}
-
-/* Header in normal state (before scrolling) - NO margin-top */
-.cs_site_header.cs_style_1.cs_color_1.cs_sticky_header {
+/* HEADER & STICKY LOGIC */
+.cs_site_header.cs_sticky_header {
   position: relative !important;
   margin-top: 0 !important;
   z-index: 9999 !important;
-  top: 0 !important;
 }
 
-/* Header in sticky active state - PRESERVE THEME STYLES */
-.cs_site_header.cs_style_1.cs_color_1.cs_sticky_header.cs_sticky_active {
+/* Adjust header position when it sticks so it doesn't overlap the marquee */
+.cs_site_header.cs_sticky_active {
   position: fixed !important;
-  top: 36px !important;
+  top: 36px !important; /* Matches banner height */
   left: 0 !important;
   width: 100% !important;
   z-index: 9998 !important;
-  margin-top: 0 !important;
   background-color: var(--primary) !important;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1) !important;
-  animation: slideDown 0.3s ease !important;
+  animation: summitSlideDown 0.3s ease !important;
 }
 
-/* Also handle style_2 if it exists */
-.cs_site_header.cs_style_2.cs_color_1.cs_sticky_header.cs_sticky_active {
-  position: fixed !important;
-  top: 36px !important;
-  left: 0 !important;
-  width: 100% !important;
-  z-index: 9998 !important;
-  margin-top: 0 !important;
-  background-color: var(--primary) !important;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1) !important;
-  animation: slideDown 0.3s ease !important;
-}
-
-.cs_gradient_style .cs_moving_section {
-  -webkit-text-fill-color: currentColor;
-}
-
-/* Animation for sticky header */
-@keyframes slideDown {
+@keyframes summitSlideDown {
   from {
     transform: translateY(-100%);
-    opacity: 0.8;
+    opacity: 0;
   }
   to {
     transform: translateY(0);
@@ -394,74 +367,41 @@ body {
   }
 }
 
-.cs_main_header_in {
-  padding-top: 0 !important;
-  margin-top: 0 !important;
-}
-
-/* Mobile responsiveness */
+/* MOBILE RESPONSIVENESS */
 @media (max-width: 768px) {
-  section:has(.cs_moving_section_wrap) {
-    padding: 3px 0 !important;
+  .summit-promo-banner {
     height: 32px !important;
   }
-
-  section:has(.cs_moving_section_wrap) .cs_moving_section {
-    font-size: 14px !important;
-  }
-
-  section:has(.cs_moving_section_wrap) .cs_moving_section.cs_fs_120 {
-    font-size: 16px !important;
-  }
-
-  section:has(.cs_moving_section_wrap) .cs_moving_section_wrap {
-    height: 26px !important;
-  }
-
   body {
     padding-top: 32px !important;
   }
-
-  .cs_site_header.cs_style_1.cs_color_1.cs_sticky_header.cs_sticky_active,
-  .cs_site_header.cs_style_2.cs_color_1.cs_sticky_header.cs_sticky_active {
+  .cs_site_header.cs_sticky_active {
     top: 32px !important;
   }
-
-  section:has(.cs_moving_section_wrap) .cs_moving_duration_40 {
+  .summit-marquee-text {
+    font-size: 14px !important;
     animation-duration: 35s !important;
   }
 }
 
 @media (max-width: 480px) {
-  section:has(.cs_moving_section_wrap) {
+  .summit-promo-banner {
     height: 28px !important;
-    padding: 2px 0 !important;
   }
-
-  section:has(.cs_moving_section_wrap) .cs_moving_section {
-    font-size: 12px !important;
-  }
-
-  section:has(.cs_moving_section_wrap) .cs_moving_section.cs_fs_120 {
-    font-size: 16px !important;
-  }
-
-  section:has(.cs_moving_section_wrap) .cs_moving_section_wrap {
-    height: 24px !important;
-  }
-
   body {
     padding-top: 28px !important;
   }
-
-  .cs_site_header.cs_style_1.cs_color_1.cs_sticky_header.cs_sticky_active,
-  .cs_site_header.cs_style_2.cs_color_1.cs_sticky_header.cs_sticky_active {
+  .cs_site_header.cs_sticky_active {
     top: 28px !important;
   }
-
-  section:has(.cs_moving_section_wrap) .cs_moving_duration_40 {
+  .summit-marquee-text {
+    font-size: 12px !important;
     animation-duration: 30s !important;
   }
+}
+
+.cs_main_header {
+  background-color: var(--primary);
 }
 
 /* Youtube Video Stylings */
@@ -480,4 +420,145 @@ body {
   height: 100% !important;
   display: flex !important;
   align-items: center !important;
+}
+
+.cs_site_header.cs_style_1.cs_primary_color.cs_sticky_header.cs_white_bg+.cs_page_heading.cs_style_1, .cs_site_header.cs_style_1.cs_primary_color.cs_sticky_header.cs_white_bg+.cs_side_header+.cs_page_heading.cs_style_1
+Specificity: (0,7,0) {
+  margin-top: 0px !important;
+}
+
+/* Styles applied to the speaker and partner cards*/
+/*.cs_pricing_table.cs_style_1:hover {
+  -webkit-transform: scale(1.03);
+      -ms-transform: scale(1.03);
+          transform: scale(1.03);
+}
+
+.cs_pricing_table.cs_style_1{
+ -webkit-box-flex: 1;
+      -ms-flex: 1 1 300px;
+                flex: 1 1 300px;
+  margin: 20px 20px 20px 20px;
+  background: #091d5f;
+  border-radius: 25px;
+  max-width: 600px;
+
+height: 700px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+
+  -webkit-box-shadow: 0 0 60px -15px rgba(9, 29, 95,1.25);
+          box-shadow: 0 0 60px -15px rgba(9, 29, 95, 1.25);
+  -webkit-transition: -webkit-transform 300ms ease;
+  transition: -webkit-transform 300ms ease;
+  -o-transition: transform 300ms ease;
+  transition: transform 300ms ease;
+  transition: transform 300ms ease, -webkit-transform 300ms ease;
+}
+
+.cs_pricing_info .cs_primary_bg {
+    background-color: #ffffff !important;
+    color: var(--primary)
+}
+
+.cs_pricing_info .cs_primary_bg:hover {
+    background-color: #9026c8 !important;
+}*/
+
+/*.cs_pricing_table.cs_style_1 {
+  flex: 1;
+  max-width: 100%; 
+  min-height: 550px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 40px;
+  box-sizing: border-box;
+  background: linear-gradient(145deg, #091d5f 0%, #06123d 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  overflow: hidden;
+}
+*/
+/* Hover State: The "Lift" Effect */
+/*.cs_pricing_table.cs_style_1:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 40px 80px rgba(9, 29, 95, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}*/
+
+/* The Button Styling */
+/*.cs_pricing_info .cs_primary_bg {
+    background: #ffffff !important;
+    color: #091d5f !important;
+    padding: 15px 30px;
+    border-radius: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}*/
+
+/*.cs_pricing_info .cs_primary_bg:hover {
+    background: linear-gradient(90deg, #9026c8, #6a1b9a) !important;
+    color: #ffffff !important;
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(144, 38, 200, 0.3);
+}*/
+
+/*.row:has(.col-lg-6) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.col-lg-6:has(.cs_pricing_table) {
+    width: 100%;
+}
+.cs_pricing_table.cs_style_1 {
+    padding: 10%;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.cs_pricing_table.cs_style_1 .cs_pricing_info {
+    justify-content: center;
+}
+.cs_price {
+    display: none !important;
+}
+
+@media (max-width: 600px) {
+  .row:has(.col-lg-6)  {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 800px) {
+  .row:has(.col-lg-6)  {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+}*/
+
+.cs_hero.cs_style_4 .cs_hero_subtitle:before {
+  display: none;
+}
+
+.cs_hero.cs_style_4 .cs_hero_subtitle:after,
+.cs_section_heading.cs_style_2 .cs_section_subtitle:before {
+  display: none;
+}
+
+.cs_munu_dropdown_toggle ul {
+  width: 50px !important;
 }
