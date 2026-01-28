@@ -1,0 +1,33 @@
+<script>
+  // Corrected selector: both classes on the same element
+  const elementToWrap = document.querySelector(".cs_pricing_table.cs_style_1");
+
+  function wrapElementWithContainer(target, tag = "div", className = "tryer") {
+    // Check if target exists and is a valid HTML element
+    if (!target || !(target instanceof HTMLElement)) {
+      console.error("Target element not found or invalid.");
+      return null;
+    }
+
+    const newContainer = document.createElement(tag);
+    if (className) {
+      newContainer.classList.add(className);
+    }
+
+    const parent = target.parentNode;
+    if (parent) {
+      // Standard wrapping: move target inside new container
+      parent.insertBefore(newContainer, target);
+      newContainer.appendChild(target);
+      console.log("Element successfully wrapped.");
+    } else {
+      // If element is not in DOM yet, just nest it
+      newContainer.appendChild(target);
+    }
+
+    return newContainer;
+  }
+
+  // Execute the function
+  wrapElementWithContainer(elementToWrap);
+</script>
