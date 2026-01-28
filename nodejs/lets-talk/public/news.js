@@ -1,4 +1,4 @@
-const eventSource = new EventSource("/api/xys");
+const eventSource = new EventSource("/api/news");
 
 const liveContainer = document.getElementById("live-container");
 
