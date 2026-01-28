@@ -2,11 +2,13 @@
   "version": 2,
   "functions": {
     "server.js": {
-      "includeFiles": "public/**, data/**"
+      "runtime": "nodejs20.x",
+      "includeFiles": "public/**, data/**, utils/**, handlers/**, events/**"
     }
   },
-  "rewrites": [
-    { "source": "/api/(.*)", "destination": "/server.js" },
-    { "source": "/(.*)", "destination": "/server.js" }
-  ]
+  "routes": [
+    { "src": "^/api/(.*)", "dest": "/server.js" },
+    { "src": "^/(.*)$", "dest": "/server.js" }
+  ],
+  "buildCommand": "npm install"
 }
