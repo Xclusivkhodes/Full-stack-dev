@@ -1,0 +1,16 @@
+{
+  "name": "retro",
+  "version": "1.0.0",
+  "description": "jjj\\",
+  "license": "ISC",
+  "author": "felix",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --watch index.js"
+  },
+  "dependencies": {
+    "@electric-sql/pglite": "^0.3.15"
+  }
+}
