@@ -75,15 +75,17 @@ import fs from "fs";
           ('Triumph', 'Spitfire', 1972, 19000, 'green', 3, true),
           ('Triumph', 'Stag', 1975, 25000, 'red', 4, false),
           ('Triumph', 'Dolomite Sprint', 1974, 21000, 'orange', 3, false);
-
 `);
 
   // Load the SQL file
   const query = fs.readFileSync("query.sql", "utf8");
 
   // Executing simple queries for sections 1 - 3
-  const response = await db.query(query);
+  await db.exec(query);
 
+  const response = await db.query(
+    `SELECT brand, model, year, condition, price FROM cars;`,
+  );
   console.clear();
   console.table(response.rows);
 })();
