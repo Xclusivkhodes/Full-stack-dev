@@ -1,0 +1,768 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hack-AI-Thon | Pan African AI & Innovation Summit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        /* PAAIS Brand Color Palette */
+        --bg-main: #010017; /* Very Deep Blue/Black */
+        --bg-card: #080652; /* Dark Blue */
+        --bg-input: #0c0a6b; /* Slightly lighter blue for inputs */
+
+        --accent-primary: #242dd8; /* Vibrant Tech Blue */
+        --accent-light: #757cf7; /* Soft Indigo */
+        --accent-glow: rgba(36, 45, 216, 0.4);
+
+        --text-main: #e6ebfc; /* Icy White */
+        --text-muted: #9ba4d8; /* Muted Indigo/Grey */
+
+        --border-color: #1e2482;
+        --success-color: #10b981;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background-color: var(--bg-main);
+        color: var(--text-main);
+        font-family: "Inter", sans-serif;
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      .btn {
+        font-family: "Montserrat", sans-serif;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Navbar (Simple Mockup) */
+      header {
+        padding: 20px 0;
+        border-bottom: 1px solid var(--border-color);
+        background: rgba(1, 0, 23, 0.9);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        backdrop-filter: blur(10px);
+      }
+
+      .nav-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: var(--text-main);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .logo span {
+        color: var(--accent-light);
+      }
+
+      /* Hero Section */
+      .hero {
+        text-align: center;
+        padding: 120px 20px 80px;
+        background: radial-gradient(
+          circle at top center,
+          var(--bg-card) 0%,
+          var(--bg-main) 80%
+        );
+        position: relative;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml;utf8,<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="1" fill="%23242DD8" opacity="0.3"/></svg>')
+          repeat;
+        z-index: 0;
+        pointer-events: none;
+      }
+
+      .hero .container {
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero h1 {
+        font-size: 4.5rem;
+        color: #fff;
+        margin-bottom: 15px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        text-shadow: 0 0 20px var(--accent-glow);
+      }
+
+      .hero h2 {
+        font-size: 2rem;
+        margin-bottom: 30px;
+        font-weight: 500;
+        color: var(--accent-light);
+      }
+
+      .hero p {
+        max-width: 850px;
+        margin: 0 auto 20px;
+        color: var(--text-muted);
+        font-size: 1.15rem;
+      }
+
+      .btn {
+        display: inline-block;
+        background: linear-gradient(
+          135deg,
+          var(--accent-primary),
+          var(--accent-light)
+        );
+        color: #fff;
+        padding: 16px 40px;
+        font-size: 1.1rem;
+        font-weight: 700;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        box-shadow: 0 8px 25px var(--accent-glow);
+        margin-top: 30px;
+      }
+
+      .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 30px rgba(117, 124, 247, 0.6);
+      }
+
+      /* Info Grid */
+      .info-section {
+        padding: 80px 0;
+        position: relative;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+      }
+
+      .card {
+        background-color: var(--bg-card);
+        padding: 35px 30px;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(
+          90deg,
+          var(--accent-primary),
+          var(--accent-light)
+        );
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        border-color: var(--accent-primary);
+      }
+
+      .card h3 {
+        font-size: 1.4rem;
+        margin-bottom: 20px;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .card ul {
+        list-style: none;
+      }
+
+      .card ul li {
+        margin-bottom: 15px;
+        color: var(--text-muted);
+        padding-left: 24px;
+        position: relative;
+        font-size: 0.95rem;
+      }
+
+      .card ul li::before {
+        content: "✦";
+        color: var(--accent-light);
+        position: absolute;
+        left: 0;
+        top: 2px;
+        font-size: 0.9rem;
+      }
+
+      .track-title {
+        color: var(--text-main);
+        font-weight: 600;
+      }
+
+      /* Form Section */
+      .apply-section {
+        padding: 100px 0;
+        background-color: var(--bg-card);
+        border-top: 1px solid var(--border-color);
+      }
+
+      .apply-header {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .apply-header h2 {
+        font-size: 2.8rem;
+        color: #fff;
+        margin-bottom: 10px;
+      }
+
+      .apply-header p {
+        color: var(--accent-light);
+        font-size: 1.2rem;
+        font-weight: 500;
+      }
+
+      form {
+        max-width: 850px;
+        margin: 0 auto;
+        background-color: var(--bg-main);
+        padding: 50px;
+        border-radius: 16px;
+        border: 1px solid var(--border-color);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      }
+
+      .form-group {
+        margin-bottom: 30px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: var(--text-main);
+        font-family: "Montserrat", sans-serif;
+        font-size: 1.05rem;
+      }
+
+      .sub-label {
+        display: block;
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        margin-bottom: 12px;
+        font-weight: 300;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      input[type="url"],
+      textarea {
+        width: 100%;
+        padding: 14px 18px;
+        background-color: var(--bg-input);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        color: #fff;
+        font-size: 1rem;
+        font-family: "Inter", sans-serif;
+        transition: all 0.3s ease;
+      }
+
+      input::placeholder,
+      textarea::placeholder {
+        color: #5c6599;
+      }
+
+      input:focus,
+      textarea:focus {
+        outline: none;
+        border-color: var(--accent-light);
+        box-shadow: 0 0 0 3px rgba(117, 124, 247, 0.2);
+        background-color: #0d0b7d;
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 120px;
+      }
+
+      .checkbox-group {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 15px;
+        margin-top: 10px;
+      }
+
+      .checkbox-group label {
+        display: flex;
+        align-items: center;
+        font-weight: 400;
+        margin-bottom: 0;
+        cursor: pointer;
+        font-family: "Inter", sans-serif;
+        font-size: 0.95rem;
+        background: var(--bg-input);
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid var(--border-color);
+        transition: border-color 0.2s;
+      }
+
+      .checkbox-group label:hover {
+        border-color: var(--accent-light);
+      }
+
+      .checkbox-group input[type="checkbox"] {
+        margin-right: 12px;
+        width: 20px;
+        height: 20px;
+        accent-color: var(--accent-primary);
+        cursor: pointer;
+      }
+
+      /* Full width for agreement checkboxes */
+      .agreements.checkbox-group {
+        grid-template-columns: 1fr;
+      }
+
+      /* Dynamic Team Member Styling */
+      .team-member-block {
+        background-color: var(--bg-input);
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        border-left: 4px solid var(--accent-primary);
+      }
+
+      .team-member-block input {
+        background-color: var(--bg-main);
+      }
+
+      .add-btn {
+        background-color: transparent;
+        color: var(--accent-light);
+        border: 1px dashed var(--accent-light);
+        padding: 12px 20px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 0.95rem;
+        font-weight: 600;
+        margin-top: 10px;
+        width: 100%;
+        transition: all 0.3s;
+        font-family: "Inter", sans-serif;
+      }
+
+      .add-btn:hover {
+        background-color: rgba(117, 124, 247, 0.1);
+        color: #fff;
+      }
+
+      .submit-btn {
+        width: 100%;
+        margin-top: 30px;
+        padding: 20px;
+        font-size: 1.2rem;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 3rem;
+        }
+        .hero h2 {
+          font-size: 1.5rem;
+        }
+        form {
+          padding: 30px 20px;
+        }
+        .apply-header h2 {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container nav-content">
+        <div class="logo">PAA<span>IS</span></div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="container">
+        <h1>Hack-AI-Thon</h1>
+        <h2>Stop waiting for the future. Build It.</h2>
+        <p>
+          Build AI solutions rooted in local data, culture, and impact across
+          five key sectors: HealthTech, AgriTech, FinTech, ClimateTech, and
+          EdTech. It is time to scale Africa's ethical AI ecosystem.
+        </p>
+        <p>
+          Step up and build relevant local AI solutions using Afrocentric data.
+          Compete, connect and prove your skills, showcase your AI-led
+          innovations in live demos, and get hands-on guidance in our exclusive
+          mentorship labs for your start-up and investment to scale up.
+        </p>
+        <p>
+          Ready to forge cross-sector partnerships and drive sustainable
+          development? Bring your boldest ideas to the Pan African AI &
+          Innovation Summit. Compete, connect, and showcase your youth-led AI
+          innovations to global tech leaders and investors.
+        </p>
+        <button
+          class="btn"
+          onclick="
+            document
+              .getElementById('application-form')
+              .scrollIntoView({ behavior: 'smooth' })
+          "
+        >
+          Build-AI-Thon Application
+        </button>
+      </div>
+    </section>
+
+    <section class="info-section">
+      <div class="container grid">
+        <div class="card">
+          <h3>Event Structure</h3>
+          <ul>
+            <li>
+              <span class="track-title">Pre-Hack Bootcamp:</span> Virtual
+              training/sync on rules of engagement (ROE), datasets, and design
+            </li>
+            <li>
+              <span class="track-title">48-Hour Hack Sprint:</span> Hybrid
+              format (Accra + virtual teams)
+            </li>
+            <li>
+              <span class="track-title">Demo Day:</span> Finalists pitch live at
+              the Summit
+            </li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Innovation Tracks</h3>
+          <ul>
+            <li>
+              <span class="track-title">HealthTech:</span> AI for healthcare,
+              diagnostics, treatment and wellness
+            </li>
+            <li>
+              <span class="track-title">AgriTech:</span> Crop yield, pest and
+              disease detection, supply chain
+            </li>
+            <li>
+              <span class="track-title">FinTech:</span> Tools for financial
+              inclusion, payment, fraud detection & prevention
+            </li>
+            <li>
+              <span class="track-title">ClimateTech:</span> Flood alerts, waste
+              management, energy
+            </li>
+            <li>
+              <span class="track-title">EdTech:</span> Language-inclusive
+              platforms, AI tutors, AI platforms for learning
+            </li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Eligibility & Rewards</h3>
+          <ul>
+            <li>
+              <span class="track-title">Who:</span> African developers,
+              researchers, students, and startups
+            </li>
+            <li>
+              <span class="track-title">Teams:</span> 3–5 members with
+              cross-disciplinary skills
+            </li>
+            <li>
+              <span class="track-title">Requirements:</span> Must use AI with
+              local relevance
+            </li>
+            <li>
+              <span class="track-title">Prizes:</span> Cash prizes, mentorship,
+              and exhibition slots
+            </li>
+            <li>
+              <span class="track-title">Perks:</span> Access to partner
+              accelerators
+            </li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Key Dates</h3>
+          <ul>
+            <li><span class="track-title">Apply:</span> 15th - 15th July</li>
+            <li><span class="track-title">Bootcamp:</span> Aug 20–22</li>
+            <li><span class="track-title">Hackathon:</span> Sept 6–8</li>
+            <li>
+              <span class="track-title">Demo Day:</span> Sept 22 - 23 @ PAAiS
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="apply-section" id="application-form">
+      <div class="container">
+        <div class="apply-header">
+          <h2>PAAIS Build-A-Thon Application Form</h2>
+          <p>Pan-African AI Hackathon 2025 – “AI for African Realities”</p>
+        </div>
+
+        <form id="hackathonForm">
+          <div class="form-group">
+            <label for="teamName">Team Name *</label>
+            <input
+              type="text"
+              id="teamName"
+              required
+              placeholder="Enter your team's name"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Team Members (3–5 required) *</label>
+            <div id="team-members-container"></div>
+            <button type="button" class="add-btn" id="addMemberBtn">
+              + Add Another Team Member (Max 5)
+            </button>
+          </div>
+
+          <div class="form-group">
+            <label>Track Selection *</label>
+            <span class="sub-label"
+              >Choose the sector your AI solution targets.</span
+            >
+            <div class="checkbox-group">
+              <label
+                ><input type="radio" name="track" value="HealthTech" required />
+                HealthTech</label
+              >
+              <label
+                ><input type="radio" name="track" value="AgriTech" />
+                AgriTech</label
+              >
+              <label
+                ><input type="radio" name="track" value="FinTech" />
+                FinTech</label
+              >
+              <label
+                ><input type="radio" name="track" value="ClimateTech" />
+                ClimateTech</label
+              >
+              <label
+                ><input type="radio" name="track" value="EdTech" />
+                EdTech</label
+              >
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="projectIdea">Project Idea *</label>
+            <span class="sub-label"
+              >Briefly describe your AI solution and its relevance to African
+              communities. (Max 200 words)</span
+            >
+            <textarea
+              id="projectIdea"
+              required
+              placeholder="Describe your innovative idea..."
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="localRelevance">Local Relevance *</label>
+            <span class="sub-label"
+              >How does your solution incorporate local data, culture, or
+              languages?</span
+            >
+            <textarea
+              id="localRelevance"
+              required
+              placeholder="Explain local integration and afrocentric data usage..."
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="techStack">Tech Stack & Tools *</label>
+            <span class="sub-label"
+              >List the technologies you plan to use.</span
+            >
+            <textarea
+              id="techStack"
+              required
+              placeholder="e.g., Python, TensorFlow, React, HuggingFace..."
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="experience">Previous Experience (Optional)</label>
+            <span class="sub-label"
+              >Share any past projects, awards, or relevant experience.</span
+            >
+            <textarea
+              id="experience"
+              placeholder="Tell us about your background..."
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="socialImpact">Social Impact Statement *</label>
+            <span class="sub-label"
+              >What change do you hope to create through this project? (Max 100
+              words)</span
+            >
+            <textarea
+              id="socialImpact"
+              required
+              placeholder="Describe the community impact..."
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>Primary Contact Information *</label>
+            <input
+              type="email"
+              id="email"
+              required
+              placeholder="Contact Email"
+              style="margin-bottom: 15px"
+            />
+            <input
+              type="tel"
+              id="phone"
+              required
+              placeholder="Phone Number (WhatsApp preferred)"
+              style="margin-bottom: 15px"
+            />
+            <input
+              type="url"
+              id="linkedin"
+              placeholder="LinkedIn or Portfolio Link (Optional)"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Consent & Commitment *</label>
+            <div class="checkbox-group agreements">
+              <label
+                ><input type="checkbox" required /> We commit to participating
+                in the Virtual Pre-Hack Bootcamp and Hackathon.</label
+              >
+              <label
+                ><input type="checkbox" required /> We agree to pitch live at
+                Demo Day at the Kempinski Hotel, Accra if selected.</label
+              >
+            </div>
+          </div>
+
+          <button type="submit" class="btn submit-btn">
+            Submit Application
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const container = document.getElementById("team-members-container");
+        const addBtn = document.getElementById("addMemberBtn");
+        let memberCount = 0;
+        const maxMembers = 5;
+
+        // Function to generate team member HTML fields
+        function addMemberField() {
+          if (memberCount >= maxMembers) return;
+
+          memberCount++;
+          const memberDiv = document.createElement("div");
+          memberDiv.className = "team-member-block";
+          memberDiv.innerHTML = `
+                    <label style="font-size:0.9rem; color:var(--accent-light); margin-bottom:10px;">Team Member ${memberCount}</label>
+                    <input type="text" placeholder="Full Name" required style="margin-bottom: 12px;">
+                    <input type="text" placeholder="Role (e.g., Developer, AI Researcher, UI/UX)" required style="margin-bottom: 12px;">
+                    <input type="text" placeholder="Country of Residence" required>
+                `;
+          container.appendChild(memberDiv);
+
+          // Hide button if max reached
+          if (memberCount >= maxMembers) {
+            addBtn.style.display = "none";
+          }
+        }
+
+        // Initialize form with 3 members required
+        for (let i = 0; i < 3; i++) {
+          addMemberField();
+        }
+
+        // Add more members on button click
+        addBtn.addEventListener("click", addMemberField);
+
+        // Simple form submission handler
+        document
+          .getElementById("hackathonForm")
+          .addEventListener("submit", (e) => {
+            e.preventDefault();
+            alert(
+              "Success! Your application for the PAAIS Build-A-Thon has been securely submitted.",
+            );
+            e.target.reset();
+          });
+      });
+    </script>
+  </body>
+</html>

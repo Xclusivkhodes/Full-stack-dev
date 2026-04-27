@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Speaker</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      
+      body {
+        font-family: var(--primary-font);
+        background-image: url(https://panafricanaisummit.com/storage/media/kRmG6M1sRvoh02fsQ1Alrv5S8P4sxRJy6w69PHUl.jpg);
+        margin: 0;
+      }
+
+      .subtitles {
+        font-size: 1.15rem;
+        font-weight: 500;
+        color: var(--secondary);
+        margin-bottom: 25px;
+        letter-spacing: 0.2px;
+        line-height: 1.5;
+        opacity: 0.9;
+        text-align: center;
+      }
+
+      .speakers-section {
+        padding: 80px 20px;
+      }
+
+      .speakers-title {
+        font-size: 2.6rem;
+        font-weight: 800;
+        margin: 0 0 12px 0;
+        color: var(--primary);
+        text-align: center;
+      }
+
+      .speakers-grid {
+    max-width: 90%;
+    margin: 30px auto 0 auto;
+    display: grid;
+    gap: 35px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+      .speaker-card {
+
+        background: #ffffff;
+        border-radius: 18px;
+        padding: 18px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+        transition: 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        justify-content: space-between;
+      }
+
+      .speaker-card:hover::before {
+        left: 120%;
+        top: 120%;
+      }
+
+      .speaker-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+          
+      }
+
+      .speaker-img {
+        width: 100%;
+        height: 400px;
+        border-radius: 14px;
+        overflow: hidden;
+        margin-bottom: 18px;
+      }
+
+      .speaker-card a {
+        text-decoration: none;
+      }
+
+      @media (max-width: 900px) {
+        .speaker-img {
+          width: 100%;
+          height: 420px;
+          border-radius: 14px;
+          overflow: hidden;
+          margin-bottom: 18px;
+        }
+      }
+
+      .speaker-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.3s;
+        object-position: top;
+      }
+
+      .speaker-card:hover .speaker-img img {
+        transform: scale(1.05);
+      }
+      b {
+        color: var(--primary)
+}
+
+      .speaker-name {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 6px;
+        color: #1a1a2e;
+        text-align: center;
+      }
+
+      .speaker-role {
+        font-size: 1.2rem;
+        color: #555;
+        margin-bottom: 18px;
+        text-align: center;
+      }
+
+      .speaker-btn {
+        color: white;
+
+        font-family: var(--primary-font);
+        border: none;
+        padding: 12px 26px;
+        border-radius: 30px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: 0.25s ease;
+        box-shadow: 0 4px 12px rgba(91, 10, 255, 0.3);
+      }
+
+      .speaker-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 16px rgba(91, 10, 255, 0.45);
+      }
+
+      .sam-card {
+        display: flex;
+        flex-direction: row;
+        gap: 100px;
+        padding: 0;
+        
+      }
+
+      .sam-name {
+        font-size: 4rem;
+        font-weight: 900;
+      }
+
+      .sam-main {
+        background-color: goldenrod;
+      }
+
+      .sam-img {
+        height: 450px;
+      }
+
+      .sam-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      @media (max-width: 900px) {
+        .sam-card {
+          display: flex;
+          flex-direction: column;
+          gap:1px;
+          
+      }
+      .sam-name {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+      .sam-text{
+        margin-top: 0;
+      }
+      }
+
+
+    </style>
+  </head>
+
+  <body>
+    <section class="speakers-section" id="speakers">
+      <h2 class="speakers-title">MEET THE VISIONARY SPEAKERS</h2>
+      <p class="subtitles">OUR 2026 SPEAKERS</p>
+
+      
+        <div class="sam speakers-grid">
+          <div class="speaker-card sam-main">
+            <a class="learn sam-card" href="sam">
+              <div class="speaker-img sam-img">
+                <img
+                class=""
+                  src="https://panafricanaisummit.com/storage/media/rKSbw9GMYsCwUfMBBiYVkpBSDojvmwEWhh5a14kv.jpg"
+                  alt="Sam George"
+                />
+              </div>
+              <div class="sam-text">
+                <h3 class="speaker-name sam-name">Hon. Sam George</h3>
+              <p class="speaker-role">Minister of Communications, Digital Technology and Innovations of Ghana<br>
+  <b>Republic Of Ghana</b></p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+      <div class="speakers-grid">
+
+       
+
+<!-- Maxwell Ababio -->
+
+        <div class="speaker-card">
+          <a class="learn" href="maxwell">
+            <div class="speaker-img">
+              <img
+                src="https://panafricanaisummit.com/storage/media/f0VgUwNnSgZb4I6vIs00WvEOEngCQaCNh5O6hyLZ.png"
+                alt="Maxwell Ababio"
+              />
+            </div>
+            <h3 class="speaker-name">Maxwell Ababio</h3>
+            <p class="speaker-role">Deputy Director, Technology & Ethics
+<b>Data Protection Commission</b></p>
+          </a>
+        </div>
+
+        <!-- Jason Hickey -->
+
+        <div class="speaker-card">
+          <a class="learn" href="jason">
+            <div class="speaker-img">
+              <img
+                src="https://panafricanaisummit.com/storage/media/4HI0AXqz1qVIvRT8JV2WXuDcbdyZmHnvOeDU3Tyh.png"
+                alt="Jason Hickey"
+              />
+            </div>
+            <h3 class="speaker-name">Jason Hickey</h3>
+            <p class="speaker-role">Former Head<br> <b>Google Research Africa</b></p>
+          </a>
+        </div>
+
+        <!-- Darlington Akogo -->
+
+        <div class="speaker-card">
+          <a class="learn" href="darlington">
+            <div class="speaker-img">
+              <img
+                src="https://panafricanaisummit.com/storage/media/OIqp31HnS6sKI862FilUZOpgIjfCU06OX26NTdVr.png"
+                alt="Darlington Akogo"
+              />
+            </div>
+            <h3 class="speaker-name">Darlington Akogo</h3>
+            <p class="speaker-role">
+              Founder, CEO, <b>minoHealth AI</b>, karaAgro AI. | AI for Radiology <br>Chair,
+              UN
+            </p>
+          </a>
+        </div>
+
+
+        <!-- Andreas Horn -->
+
+        <div class="speaker-card">
+          <a class="learn" href="https://panafricanaisummit.com/festus-Eo2UTR">
+            <div class="speaker-img">
+              <img
+                src="https://panafricanaisummit.com/storage/media/kcUeZukUVMHsoDNuL3gLwvtkEAn7EaUFuZsuVqqI.png"
+                alt="Andreas Horn"
+              />
+            </div>
+            <h3 class="speaker-name">Andreas Horn</h3>
+            <p class="speaker-role">Head of AIOps <br><b>IBM, Germany</b></p>
+          </a>
+        </div>
+
+
+
+
+ <!-- Prof. Olivia A. T. Frimpong Kwapong, PhD    -->
+
+        <div class="speaker-card">
+          <a class="learn" href="olivia">
+            <div class="speaker-img">
+              <img
+                src="https://panafricanaisummit.com/storage/media/2zfmVjhYFZVM45N1UXx05tjUOhfBPJX3b9ePGzCE.png"
+                alt="Prof. Olivia A. T. Frimpong Kwapong, PhD   "
+              />
+            </div>
+            <h3 class="speaker-name">Prof. Olivia Frimpong Kwapong, PhD</h3>
+            <p class="speaker-role">
+              Dean, School of Continuing and Dist. Edu., Dir. Digital Youth Village & Centre for Digital Youth Dev.
+<br> <b>University of Ghana</b>.
+            </p>
+          </a>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Danny Manu  -->
+        <div class="speaker-card">
+          <a class="learn" href="https://www.linkedin.com/in/dannymanu/" target="_blank" rel="noopener">
+            <div class="speaker-img">
+              <img
+                src="https://panafricanaisummit.com/storage/media/f4o5Wo3OWROWp5vUL2EjaL4fvoYnYrc2QOvFdq9g.png"
+                alt="Danny Manu"
+              />
+            </div>
+            <h3 class="speaker-name">Danny Manu</h3>
+            <p class="speaker-role"> Innovative Entrepreneur & Angel Investor| Founder of Mymanu®<br><b>UK</b></p>
+          </a>
+        </div>
+
+
+  
+
+       <!-- Reginald Ankrah -->
+
+        <div class="speaker-card">
+          <a class="learn" href="reginald">
+            <div class="speaker-img">
+              <img
+                src="https://panafricanaisummit.com/storage/media/wbgjrNNZJ4ImPeq4Fk5p12GEe9URKC3pcpeIIHla.png"
+                alt="Reginald Ankrah"
+              />
+            </div>
+            <h3 class="speaker-name">Reginald Ankrah, PhD, UK</h3>
+            <p class="speaker-role">
+              Data AI Consultant <br><b>Accenture, UK</b>
+            </p>
+          </a>
+        </div>
+
+
+        <!-- Nina Korley -->
+
+        <div class="speaker-card">
+          <a class="learn" href="nina">
+            <div class="speaker-img">
+              <img
+                src="https://panafricanaisummit.com/storage/media/x5fLW9T3lzrWT02VHEachzJAIH9nOR4CNSQ5afwP.png"
+                alt="Nina Korley"
+              />
+            </div>
+            <h3 class="speaker-name">Nina Korley</h3>
+            <p class="speaker-role">
+              Senior manager, Cyber Strategy & Transformation - <b>Deloitte</b>
+            </p>
+          </a>
+        </div>
+
+
+        
+
+
+        <!-- 
+Kayode Akomolafe -->
+
+        <div class="speaker-card">
+          <a class="learn" href="kayode" target="_blank" rel="noopener">
+            <div class="speaker-img">
+              <img
+                src="https://panafricanaisummit.com/storage/media/rDurY05Hy7lJHFwQj8dR5BOsFa2XPZ3QMzj4reGT.png"
+                alt="
+Kayode Akomolafe"
+              />
+            </div>
+            <h3 class="speaker-name"> 
+Kayode Akomolafe</h3>
+            <p class="speaker-role">Commercial Business Leader and Enterprise Business Digital Transformation Director <b><br>AWS, Nigeria</b></p>
+          </a>
+        </div>
+
+
+
+<!-- Joseph Kweku Assan -->
+
+        <div class="speaker-card">
+          <a class="learn" href="https://panafricanaisummit.com/festus-Eo2UTR-z9kXSz" target="_blank" rel="noopener">
+            <div class="speaker-img">
+              <img
+                src="https://panafricanaisummit.com/storage/media/WYT4KuEPDYtYRX2azSni5lPMGb0P352yEY72ChKj.png"
+                alt="Joseph Kweku Assan"
+              />
+            </div>
+            <h3 class="speaker-name"> Prof. Joseph Kweku Assan</h3>
+            <p class="speaker-role">Center for Global Development and Sustainability, The Heller School for Social Policy and Management, <b><br>Brandeis University, MA, USA</b></p>
+          </a>
+        </div>
+
+
+
+        <!-- Paul Crafer -->
+
+        <div class="speaker-card">
+          <a class="learn" href="paul">
+            <div class="speaker-img">
+              <img
+                src="https://panafricanaisummit.com/storage/media/5c5HsDSBbI9Ilk4QsYBHYOXu58wez6bWlzYNUHH4.png"
+                alt="Paul Crafer"
+              />
+            </div>
+            <h3 class="speaker-name">Paul Crafer, FHCA</h3>
+            <p class="speaker-role">
+              AI Assurance & Audit Services <br> <b>EMEA</b>.
+            </p>
+          </a>
+        </div>
+
+
+
+
+<!-- George Adjabeng -->
+
+        <div class="speaker-card">
+          <a class="learn" href="https://www.linkedin.com/in/george-adjebeng-09423a27/" target="_blank" rel="noopener">
+            <div class="speaker-img">
+              <img
+                src="https://panafricanaisummit.com/storage/media/kPfumCpfPRWKofwCv4oZJFgbIk7CV0767420CiCc.png"
+                alt="George Adjabeng"
+              />
+            </div>
+            <h3 class="speaker-name">George Adjabeng</h3>
+            <p class="speaker-role">Head of Innovation<b><br>Societe Generale</b></p>
+          </a>
+        </div>
+
+
+
+
+
+
+        <!-- Dr. Tim Schneller -->
+
+        <div class="speaker-card">
+          <a class="learn" href="tim">
+            <div class="speaker-img">
+              <img
+                src="https://panafricanaisummit.com/storage/media/WVLKmFypD2rrps2YOdNpOS6hGJ3IbZVGX0t0zE4U.png"
+                alt="Dr. Tim Schneller"
+              />
+            </div>
+            <h3 class="speaker-name">Dr. Tim Schneller, USA</h3>
+            <p class="speaker-role">
+              Founder <b>Collab Inspire</b>, USA | Lecturer
+            </p>
+          </a>
+        </div>
+
+
+        <!-- Edward Aikins -->
+
+        <div class="speaker-card">
+          <a class="learn" href="edward">
+            <div class="speaker-img">
+              <img
+                src="https://panafricanaisummit.com/storage/media/5PaKcB6VZAHPQVPjDIugUWnIEpURixAroYGiOSHp.png"
+                alt="Edward Aikins"
+              />
+            </div>
+            <h3 class="speaker-name">Edward Aikins</h3>
+            <p class="speaker-role">Senior Manager <br><b>Deloitte</b></p>
+          </a>
+        </div>
+
+        <!-- Yaw Nsarkoh -->
+
+        <div class="speaker-card">
+          <a class="learn" href="yaw">
+            <div class="speaker-img">
+              <img
+                src="https://panafricanaisummit.com/storage/media/mvAx4tdt410hUIZNfxjFyc0EaZvqmA43finDnXUq.png"
+                alt="Yaw Nsarkoh"
+              />
+            </div>
+            <h3 class="speaker-name">Yaw (Oduro) Nsarkoh, UK</h3>
+            <p class="speaker-role">
+              Former Executive VP. Global Market <br> <b>Unilever</b>
+            </p>
+          </a>
+        </div>
+
+        <!-- Akwasi Obeng-Adjei -->
+
+        <div class="speaker-card">
+          <a class="learn" href="akwesi">
+            <div class="speaker-img">
+              <img
+                src="https://panafricanaisummit.com/storage/media/kNL7Ec2iGJuBxl8n9dN6VgYLRGVIvhMQOzwf6bIY.png"
+                alt="Akwasi Obeng-Adjei"
+              />
+            </div>
+            <h3 class="speaker-name">Akwasi Obeng-Adjei, SA</h3>
+            <p class="speaker-role">
+              Executive: Risk (Business Bank), <b>Absa Group Limited MBA (Stellenbosch)</b>
+            </p>
+          </a>
+        </div>
+
+
+
+
+
+ <!-- Richard Quainoo -->
+
+        <div class="speaker-card">
+          <a class="learn" href="richard">
+            <div class="speaker-img">
+              <img
+                src="https://panafricanaisummit.com/storage/media/0inHQImMLjNYIJR7KUFlVeXYxiGCFGIMylB8cLjD.png"
+                alt="Edward Aikins"
+              />
+            </div>
+            <h3 class="speaker-name">
+Richard Quainoo</h3>
+            <p class="speaker-role">
+AI & Data Consultant <br><b>Deloitte</b></p>
+          </a>
+        </div>        
+
+
+
+        <!-- Joshua Odoi -->
+
+        <div class="speaker-card">
+          <a class="learn" href="josh">
+            <div class="speaker-img">
+              <img
+                src="https://panafricanaisummit.com/storage/media/js8kKN8JG8jhfI0Y9wfH6qTpfnqU0qd6STcqUQwL.png"
+                alt="Joshua Odoi"
+              />
+            </div>
+            <h3 class="speaker-name">Joshua Odoi</h3>
+            <p class="speaker-role">
+              Intel AI Mastercoach | Innovation & Tech Lead, BUILD Weekends <br><b>Chaint Afrique</b>
+            </p>
+          </a>
+        </div>
+
+        <!-- Emmanuel Apetsi -->
+
+        <div class="speaker-card">
+          <a class="learn" href="emmanuel">
+            <div class="speaker-img">
+              <img
+                src="https://panafricanaisummit.com/storage/media/p4MZ3o3sgITmlY7qIdhKlWxxXOQ7et7LH2Dmo0Qd.png"
+                alt="Emmanuel Apetsi"
+              />
+            </div>
+            <h3 class="speaker-name">Emmanuel Apetsi</h3>
+            <p class="speaker-role">
+              AI/ML Engineer | CEO - <b>SISU AI</b> | Exec. Dir. <br><b>OpenAI4Africa</b>
+            </p>
+          </a>
+        </div>
+
+
+        <!-- Prof. Kobby Mensah -->
+
+        <div class="speaker-card">
+          <a class="learn" href="prof">
+            <div class="speaker-img">
+              <img
+                src="https://panafricanaisummit.com/storage/media/kv9sLcCtuqoD4oe7dK7ginY9JJpBI9gTCpKm1e4M.png"
+                alt="Prof. Kobby Mensah"
+              />
+            </div>
+            <h3 class="speaker-name">Prof. Kobby Mensah</h3>
+            <p class="speaker-role">CEO, <b>GTDC</b></p>
+          </a>
+        </div>
+
+        <!-- Ayo Jones -->
+
+        <div class="speaker-card">
+          <a class="learn" href="ayo">
+            <div class="speaker-img">
+              <img
+                src="https://panafricanaisummit.com/storage/media/CG6m6WWaENG4DPKiYCi8gYQN2MyzzK9ijOTZyHoc.png"
+                alt="Ayo Jones"
+              />
+            </div>
+            <h3 class="speaker-name">Ayo Jones</h3>
+            <p class="speaker-role">
+              AI Advisor & Keynote Speaker | Creator of the <b>SHiFT System™</b>
+            </p>
+          </a>
+        </div>
+
+        <!-- Eugene Allotey -->
+
+        <div class="speaker-card">
+          <a class="learn" href="eugene">
+            <div class="speaker-img">
+              <img
+                src="https://panafricanaisummit.com/storage/media/N4P6F5YY1m0odljjfMkSt4Y0XcMidj7ixFhvDUMg.png"
+                alt="Eugene Allotey"
+              />
+            </div>
+            <h3 class="speaker-name">Eugene Allotey</h3>
+            <p class="speaker-role">
+              Co- Founder and COO at Creative <b>Bibini Ltd</b> | Dev Partner at <b>FOCAS</b>
+            </p>
+          </a>
+        </div>
+
+         <!-- Vincent Tetteh -->
+
+        <div class="speaker-card">
+          <a class="learn" href="vincent">
+            <div class="speaker-img">
+              <img
+                src="https://panafricanaisummit.com/storage/media/DeVMHNIvgTSb3ulqAYhwwyfxvbTHB4O2lKMg8r8K.png"
+                alt="Vincent Tetteh"
+              />
+            </div>
+            <h3 class="speaker-name">Vincent Tetteh</h3>
+            <p class="speaker-role">
+             
+Senior DevOps & AI Infrastructure Engineer <br>
+<b>Standard Chartered</b>
+            </p>
+          </a>
+        </div>
+
+        <!-- Festus Asare Yeboah -->
+
+        <div class="speaker-card">
+          <a class="learn" href="festus">
+            <div class="speaker-img">
+              <img
+                src="https://panafricanaisummit.com/storage/media/3WpN7fsetLvF57UcxuiSsc9TM0dpqMNWDqjssotu.png"
+                alt="Festus Asare Yeboah"
+              />
+            </div>
+            <h3 class="speaker-name">Festus Asare-Yeboah</h3>
+            <p class="speaker-role">
+             
+Cloud Architect, Data Engineering & Machine Learning <br> <b>Google, USA</b>
+            </p>
+          </a>
+        </div>
+
+        
+
+        <!-- G. Ayorkor Korsah -->
+
+        <div class="speaker-card">
+          <a class="learn" href="https://www.linkedin.com/in/g-ayorkor-korsah-1b09183/" target="_blank" rel="noopener">
+            <div class="speaker-img">
+              <img
+                src="https://panafricanaisummit.com/storage/media/uIxKWaGQkHJmc3kBKmjTjnl4GyG3UDwh8FQg8xRE.png"
+                alt="G. Ayorkor Korsah"
+              />
+            </div>
+            <h3 class="speaker-name">Dr. G. Ayorkor Korsah</h3>
+            <p class="speaker-role">Head of Computer Science, Artificial Intelligence, Robotics Educator & Researcher <b><br>Ashesi University</b></p>
+          </a>
+        </div>
+
+<!-- Titi Akinsanmi -->
+
+        <div class="speaker-card">
+          <a class="learn" href="https://panafricanaisummit.com/tiki-akinsanmi" target="_blank" rel="noopener">
+            <div class="speaker-img">
+              <img
+                src="https://panafricanaisummit.com/storage/media/UDU0TvYGeY3mAuChDVSWbfZrQfyu4B00rFOfbgYc.jpg"
+                alt="Titi Akinsanmi"
+              />
+            </div>
+            <h3 class="speaker-name">Titi Akinsanmi</h3>
+            <p class="speaker-role">Global Policy Team Lead, Gemini & Gen AI Safety & Responsibility<b><br>Google</b></p>
+          </a>
+        </div>
+
+<!-- Abena Nyamesem Esq -->
+
+        <div class="speaker-card">
+          <a class="learn" href="https://www.linkedin.com/in/abena-nyamesem-6a40b431/" target="_blank" rel="noopener">
+            <div class="speaker-img">
+              <img
+                src="https://panafricanaisummit.com/storage/media/iJLPbvY80IZmBfBebTeJT5sL43urZZvHVj8yDayj.png"
+                alt="Abena Nyamesem Esq"
+              />
+            </div>
+            <h3 class="speaker-name">Abena Nyamesem Esq</h3>
+            <p class="speaker-role">Environmental & Sustainability Consultant<b><br>GIFEC</b></p>
+          </a>
+        </div>
+
+
+
+
+
+
+
+
+<!-- Naa Adoley Azu -->
+
+        <div class="speaker-card">
+          <a class="learn" href="/naa"_blank" rel="noopener">
+            <div class="speaker-img">
+              <img
+                src="https://panafricanaisummit.com/storage/media/3gLGxzYcEeOMjS8QVTSHuTKt3N5dcepQJUyeLmo6.png"
+                alt="Naa Adoley Azu"
+              />
+            </div>
+            <h3 class="speaker-name"> Naa Adoley Azu</h3>
+            <p class="speaker-role">Public Affairs | Product Policy | Responsible AI Enablement | Bridging Law, Government & Industry<b><br>Microsoft</b></p>
+          </a>
+        </div>
+
+
+<!-- TOM-CHRIS EMEWULU -->
+
+        <div class="speaker-card">
+          <a class="learn" href="/tom"_blank" rel="noopener">
+            <div class="speaker-img">
+              <img
+                src="https://panafricanaisummit.com/storage/media/SLrpb5nHdUVGHUHW1wWvVdvptZ1RGFhKTHTECWIo.jpg"
+                alt="TOM-CHRIS EMEWULU"
+              />
+            </div>
+            <h3 class="speaker-name"> Tom-Chris Emewulu</h3>
+            <p class="speaker-role"> Founder and President, 
+<b><br>Stars From All Nations (SFAN)</b></p>
+          </a>
+        </div>
+
+      </div>
+  </body>
+</html>
