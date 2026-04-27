@@ -1,0 +1,96 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Inter;
+}
+
+.main {
+  width: 90%;
+  max-width: 700px;
+  margin-inline: auto;
+}
+
+.header {
+  background-color: #f44f51;
+  padding-block: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  gap: 10px;
+}
+
+.header-image {
+  width: 30px;
+}
+
+.header-text {
+  font-size: 1.3rem;
+}
+
+.entries {
+  margin-block: 60px;
+  border-bottom: 2px solid #b9b8b97b;
+}
+
+.entries:last-child {
+  margin-block: 60px;
+  border-bottom: none;
+}
+
+.entry {
+  display: flex;
+  gap: 20px;
+  height: 240px;
+  margin-block: 30px;
+  align-items: center;
+}
+
+.entries-img {
+  width: 180px;
+  border-radius: 10px;
+  height: 100%;
+  object-fit: cover;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.location-name {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.marker {
+  width: 8px;
+}
+
+.country {
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+}
+
+.location-link {
+  font-size: 0.8rem;
+  color: #777777;
+}
+
+.location-title {
+  margin-top: 0;
+  font-size: 2rem;
+}
+
+.date {
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.location-description {
+  color: #5f5e61;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
